@@ -44,6 +44,7 @@
     height: 185px;
     width: 185px;
     margin: 0 !important;
+    transition: opacity ease-in-out 0.2s;
 }
 
 .hoverProduct:hover{
@@ -71,7 +72,7 @@
     padding: 0 !important;
     height: 185px;
     width: 185px;
-    background-image: url('../../img/Testt\ 5.png');
+    background-image: url('../../img/Test_1.png');
     background-size: contain;
 }
 
@@ -96,3 +97,5 @@
     display: flex !important;
     justify-content: center !important;
 }
+
+//Slider
