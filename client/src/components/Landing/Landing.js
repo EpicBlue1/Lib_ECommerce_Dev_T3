@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import ButtSlider from '../subcomponents/BtnSlider';
+import Onsale from './OnSale';
+import NewProds from './NewProds';
+import Brands from './Brands'
 
 const Landing = () => {
 
@@ -40,6 +43,7 @@ const Landing = () => {
     });
 
     return (
+    <>
         <Row className="SliderSec">
             <Col className="SliderSubSec" md={{span: 5, offset: 1}}>
                 <h1 className="txtGrayLight"><b>Welcome to Life Is Beautiful</b></h1>
@@ -71,6 +75,10 @@ const Landing = () => {
 
             </Col>
         </Row>
+        <Onsale/>
+        <NewProds/>
+        <Brands/>
+    </>
     );
 };
 
