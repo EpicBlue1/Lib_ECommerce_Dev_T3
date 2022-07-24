@@ -8,9 +8,9 @@ import Brands from './Brands'
 const Landing = () => {
 
     const data = [
-        {name: "Hello"},
-        {name: "Susan"},
-        {name: "Tjm"}
+        {id: 0, name: "Hello"},
+        {id: 1, name: "Susan"},
+        {id: 2, name: "Tjm"}
     ]
 
     const [slideIndex, setSlideIndex] = useState(1);
@@ -38,7 +38,7 @@ const Landing = () => {
     useEffect(()=>{
         const interval = setInterval(()=>{
             Next();        
-        }, 8000);
+        }, 3000);
         return () => clearInterval(interval);
     });
 
@@ -55,7 +55,7 @@ const Landing = () => {
             <div className="ImageCon">            
                 {data.map((obj, i) => {
                     return (
-                        <div key={i} className={slideIndex === i + 1 ? 'slide active-anim' : 'slide'}>
+                        <div key={obj.id} className={slideIndex === i + 1 ? 'slide active-anim' : 'slide'}>
                             <div className="SliderImage">{obj.name}</div>
                         </div>
                     )
@@ -67,7 +67,7 @@ const Landing = () => {
             <div className="ImageConDots">
                 {data.map((obj, i) => {
                     return (
-                        <div onClick={() => moveDot (i + 1)} className={slideIndex === i + 1 ? "dot active" : "dot"}>
+                        <div key={obj.id} onClick={() => moveDot (i + 1)} className={slideIndex === i + 1 ? "dot active" : "dot"}>
                         </div>
                     )
                 })}
