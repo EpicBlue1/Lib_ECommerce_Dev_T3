@@ -1,6 +1,5 @@
 //Nav
 .Navigation{
-    background-color: white;
     color: black;
 }
 
@@ -31,7 +30,7 @@
     margin-top: 30px;
     width: 225px !important;
     height: 305px;
-    background-color: $light_gray;
+    background-color: white;
     float: left;
     margin-right: 23px;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
@@ -133,6 +132,41 @@
 .copyright{
     padding-top: 27px;
     color: white;
+}
+
+.cartIcon{
+    margin: 0 auto;
+    margin-top: 4px;
+    width: 30px;
+    height: 30px;
+    background-image: url(../../img/ShoppingCart.svg);
+    background-position: center;
+    background-size: 80%;
+    background-repeat: no-repeat;
+}
+
+.cartNum{
+    margin: 0 auto;
+    margin-top: 4px;
+    text-align: center;
+    padding: 0 !important;
+    width: 55px;
+    height: 14px;
+    background-color: $secondary_vanilla;
+    border-radius: 25px;
+    color: black !important;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.cart-modal{
+    width: 410px;
+    height: 280px;
+    background-color: $primary_dark;
+    position: relative;
+    left: -260px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 5px
 }
 
 

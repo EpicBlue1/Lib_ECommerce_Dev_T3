@@ -4,12 +4,12 @@
 
 .SliderSubSec{
     padding-left: 8vh;
-    padding-top: 11vh;
-    height: 43vh;
+    padding-top: 10vh;
+    height: 46vh;
 }
 
 .Slider{
-    padding: 2% !important;
+    padding: 4% !important;
 }
 
 .ImageCon{
@@ -28,6 +28,8 @@
     width: 55%;
     background-image: url(../../img/Test_1.png);
     display:flex;
+    background-color: $primary_dark;
+    z-index: 999;
     justify-content: center;
 }
 
@@ -55,7 +57,7 @@
   }
 
   .active-anim {
-    opacity: 1;
+    opacity: 1 !important;
   }
   
   .btn-slide {

@@ -1,6 +1,7 @@
 body {
   margin: 0;
   font-family: 'Ubuntu', sans-serif;
+  background-color: #f2f2f2;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -8,5 +9,6 @@ body {
 @import './components/Tools/mixins.scss';
 @import './components/Tools/variables.scss';
 @import './components/subcomponents/Subcomponents.scss'; //Subcomponents
-@import './components/Landing/Landing.scss' //Landing
+@import './components/Landing/Landing.scss'; //Landing
+@import './components/AllProducts/AllProducts.scss'; //Landing
 
