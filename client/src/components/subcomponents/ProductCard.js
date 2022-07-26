@@ -1,9 +1,13 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = (props) => {
+
+    const ProductNavigate = useNavigate();
+
     return (
-        <div className="product-card">
+        <div onClick={() => ProductNavigate('../', { replace: true })} className="product-card">
             <Row>
                 <div className="product-image"><div className='hoverProduct'>
                     <div className="hoverButt">Add to Cart</div>  
