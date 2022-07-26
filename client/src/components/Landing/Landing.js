@@ -19,24 +19,27 @@ const Landing = () => {
         if(slideIndex !== data.length){
             setSlideIndex(slideIndex + 1);
         } else if(slideIndex === data.length){
-            setSlideIndex(1)
+            setSlideIndex(1);
         }
     }
 
     const Prev = () => {
         if(slideIndex !== data.length){
             setSlideIndex(slideIndex - 1);
+            console.log(slideIndex);
         } else if(slideIndex === 1){
-            setSlideIndex(data.length)
+            setSlideIndex(data.length - 1);
+            console.log(slideIndex);
         }
     }
 
     const moveDot = i => {
-        setSlideIndex(i)
+        setSlideIndex(i);
     }
 
     useEffect(()=>{
         const interval = setInterval(()=>{
+            console.log(slideIndex)
             Next();        
         }, 3000);
         return () => clearInterval(interval);

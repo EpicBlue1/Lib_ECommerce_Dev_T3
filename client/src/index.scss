@@ -6,9 +6,37 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.hide{
+  display: none;
+}
+
+/* width */
+::-webkit-scrollbar {
+  margin-right: 2px;
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 @import './components/Tools/mixins.scss';
 @import './components/Tools/variables.scss';
 @import './components/subcomponents/Subcomponents.scss'; //Subcomponents
 @import './components/Landing/Landing.scss'; //Landing
 @import './components/AllProducts/AllProducts.scss'; //Landing
+@import './components/Cart/Cart.scss'; //Landing
 

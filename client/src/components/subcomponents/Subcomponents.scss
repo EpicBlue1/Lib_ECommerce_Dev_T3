@@ -73,7 +73,7 @@
     padding: 0 !important;
     height: 185px;
     width: 185px;
-    background-image: url('../../img/Test_1.png');
+    background-image: url('../../img/c_a_canon-ef-24-70mm-f4-l-is-usm-2.png');
     background-size: contain;
 }
 
@@ -139,7 +139,7 @@
     margin-top: 4px;
     width: 30px;
     height: 30px;
-    background-image: url(../../img/ShoppingCart.svg);
+    background-image: url('../../img/ShoppingCart.svg');
     background-position: center;
     background-size: 80%;
     background-repeat: no-repeat;
@@ -160,13 +160,58 @@
 }
 
 .cart-modal{
+    padding-top: 10px;
     width: 410px;
-    height: 280px;
+    display: block;
+    height: 290px;
     background-color: $primary_dark;
     position: relative;
     left: -260px;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
-    border-radius: 5px
+    border-radius: 5px;
+    z-index: 999;
+}
+
+.CartProductsArea{
+    margin: 0 auto;
+    height: 150px;
+    width: 98%;
+    overflow-y: auto;
+}
+
+.cart-product{
+    margin: 0 auto;
+    border-bottom: 1px solid white;
+    width: 98%;
+    height: 75px;
+    background-color: green;
+}
+
+.Subtotal{
+    text-align: right !important;
+    padding: 20px !important;
+    color: white !important;
+}
+
+.CheckoutButton{
+    margin: 0 auto;
+    cursor: pointer;
+    padding-top: 12px;
+    width: 300px;
+    height: 50px;
+    background-color: $secondary_vanilla;
+    background-color: #454545;
+    color: white !important;
+    font-size: 18px;
+    text-align: center;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+    transition: opacity ease-in-out 0.5s;
+}
+
+
+.CheckoutButton:hover{
+    background-color: #f2f2f2;
+    color: black !important;    
 }
 
 

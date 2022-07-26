@@ -1,0 +1,76 @@
+.CartConParent{
+    background-color: #f2f2f2;
+    height: 96vh;
+}
+
+.CartContainer{
+    margin: 0 auto;
+    margin-top: 3vh;
+    width: 95%;
+    height: 90vh;
+    background-color: $secondary_vanilla;
+}
+
+.UserDetails{
+    width: 96%;
+    height: 82vh;
+    margin-top: 4vh;
+    background-color: $primary_dark !important;
+}
+
+.CartProducts{
+    width: 90%;
+    height: 65vh;
+    margin-left: 10%;
+    margin-top: 4vh;
+    overflow-y: auto;
+}
+
+.cart-page-product{
+    width: 100%;
+    height: 120px;
+    border-bottom: 1px solid white;
+}
+
+.CartInfo{
+    width: 95%;
+    margin-left: 5%;
+    padding-top: 5%;
+}
+
+.ContShopping{
+    width: 50%;
+    height: 30px;
+    float: left;
+    color: black;
+    font-style: italic;
+    font-size: 18px;
+    display: flex;
+    cursor: pointer;
+}
+
+.ContShopping:hover{
+
+    text-decoration: underline;
+}
+
+.CartInfo p{
+    width: 45%;
+    height: 30px;
+    float: left;
+    color: black;
+    font-style: italic;
+    font-size: 18px;
+    text-align: right;
+}
+
+.BackIcon{
+    margin-top: 2px;
+    margin-right: 20px;
+    width: 20px;
+    height: 20px;
+    background-image: url('../../img/BackArrow.svg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

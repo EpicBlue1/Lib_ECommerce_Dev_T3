@@ -24,7 +24,7 @@ const NavigationBar = () => {
             className='NavObject' md={{span:1, offset:1}}>
                 <div className='cartIcon'></div>
                 <div className='cartNum'>2</div>
-                <CartModal/>
+                <CartModal Show={Show} setShow={setShow}/>
             </Col>
         </Row>
     );
