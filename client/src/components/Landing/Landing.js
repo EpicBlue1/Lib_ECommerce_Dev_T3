@@ -10,7 +10,7 @@ const Landing = () => {
     const data = [
         {id: 0, name: "Hello"},
         {id: 1, name: "Susan"},
-        {id: 2, name: "Tjm"}
+        {id: 2, name: "Tim"}
     ]
 
     const [slideIndex, setSlideIndex] = useState(1);

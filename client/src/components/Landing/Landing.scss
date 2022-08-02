@@ -37,7 +37,7 @@
     width: 385px;
     background-image: url('../../img/Canon\ EF\ 200mm\ f2\ L\ IS\ USM\ Lens.png');
     background-position: center;
-    background-size: contain;
+    background-size: 65%;
     background-repeat: no-repeat;
 }
 
@@ -109,3 +109,35 @@
   .dot.active {
     background-color: $red;
   }
+
+
+.brandImgOne{
+  width: 300px;
+  height: 300px;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 50px;
+  background-color: white;
+  // box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.Nikon{
+  background-image: url('../../img/nikon-logo-removebg-preview.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.Canon{
+  background-image: url('../../img/canon-logo-removebg-preview.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.Sony{
+  background-image: url('../../img/sony-logo-removebg-preview.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
