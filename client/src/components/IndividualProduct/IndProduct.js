@@ -1,14 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
+import Lenses from '../Mock/Lenses.json';
 
-const IndProduct = () => {
+const IndProduct = (props) => {
 
-    const data = [
-        {id: 0, name: "Hello"},
-        {id: 1, name: "Susan"},
-        {id: 2, name: "Tim"}
-    ]
+    const data = Lenses;
     
     const [slideIndex, setSlideIndex] = useState(1);
     const moveDot = i => {
@@ -16,6 +13,8 @@ const IndProduct = () => {
     }
 
     return (
+    <>
+        {props.MainNavBar}
         <Row className="SliderSec">
             <Col className="CartConParent" md={12}>
                 <div className="CartContainer">
@@ -50,6 +49,7 @@ const IndProduct = () => {
                 </div>
             </Col>
         </Row>
+    </>
     );
 };
 

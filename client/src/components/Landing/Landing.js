@@ -1,17 +1,15 @@
 import React, {useState, useEffect} from 'react';
+import { useNavigate } from 'react-router';
 import { Container, Row, Col } from 'react-bootstrap';
 import ButtSlider from '../subcomponents/BtnSlider';
 import Onsale from './OnSale';
 import NewProds from './NewProds';
-import Brands from './Brands'
+import Brands from './Brands';
+import Lenses from '../Mock/Lenses.json';
 
-const Landing = () => {
+const Landing = (props) => {
 
-    const data = [
-        {id: 0, name: "Hello"},
-        {id: 1, name: "Susan"},
-        {id: 2, name: "Tim"}
-    ]
+    const data = Lenses;
 
     const [slideIndex, setSlideIndex] = useState(1);
 
@@ -47,6 +45,7 @@ const Landing = () => {
 
     return (
     <>
+        {props.MainNavBar}
         <Row className="SliderSec">
             <Col className="SliderSubSec" md={{span: 5, offset: 1}}>
                 <h1 className="txtGrayLight"><b>Welcome to Life Is Beautiful</b></h1>

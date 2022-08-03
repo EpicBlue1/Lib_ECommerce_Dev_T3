@@ -2,8 +2,10 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import CartProduct from '../subcomponents/CartPageProduct';
 
-const Cart = () => {
+const Cart = (props) => {
     return (
+        <>
+        {props.MainNavBar}
         <Row className="SliderSec">
             <Col className="AllProductSubSec" md={{span: 12}}>
                 <h1 className="txtGrayLight"><b>Cart</b></h1>
@@ -38,6 +40,7 @@ const Cart = () => {
                 </div>
             </Col>
         </Row>
+        </>
     );
 };
 

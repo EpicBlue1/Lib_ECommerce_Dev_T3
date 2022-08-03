@@ -33,6 +33,11 @@ body {
   background: #555;
 }
 
+Row{
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 @import './components/Tools/mixins.scss';
 @import './components/Tools/variables.scss';
 @import './components/subcomponents/Subcomponents.scss'; //Subcomponents
@@ -40,4 +45,5 @@ body {
 @import './components/AllProducts/AllProducts.scss'; //Landing
 @import './components/Cart/Cart.scss'; //Landing
 @import './components/IndividualProduct/IndProduct.scss'; //Landing
+@import './components/Admin/AdminPages.scss'; //Landing
 

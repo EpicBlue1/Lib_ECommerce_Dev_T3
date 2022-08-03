@@ -1,9 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import ProductCard from '../subcomponents/ProductCard';
+import Lenses from '../Mock/Lenses.json';
 
-const AllProducts = () => {
+const AllProducts = (props) => {
+
+    const data = Lenses;
+
     return (
+<>
+    {props.MainNavBar}
         <Row className="AllProductSec">
             <Col className="AllProductSubSec" md={{span: 12}}>
                 <h1 className="txtGrayLight"><b>Camera Lenses & Accessories</b></h1>
@@ -25,15 +31,10 @@ const AllProducts = () => {
                         <select className="SortBlock"></select>
                     </Col>
                 </Row>
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
+                    {data.map(Lens =>(<ProductCard key={Lens.id} name = {Lens.name} price = {Lens.ProductProperties[1].price} discount={Lens.ProductProperties[1].discount}/>))}
             </Col>
         </Row>
+</>
     );
 };
 

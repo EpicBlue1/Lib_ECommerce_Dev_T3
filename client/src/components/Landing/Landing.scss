@@ -63,8 +63,6 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: #f1f1f1;
-    border: 1px solid rgba(34, 34, 34, 0.287);
     position: absolute;
     display: flex;
     justify-content: center;
@@ -81,12 +79,21 @@
     top: 50%;
     left: 20px;
     transform: translateY(-60%);
+    background-image: url('../../img/BackArrow.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
   }
 
   .next {
-    top: 50%;
+    top: 46%;
     right: 20px;
     transform: translateY(-60%);
+    background-image: url('../../img/BackArrow.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: scaleX(-1);
   }
   
   .container-dots {
