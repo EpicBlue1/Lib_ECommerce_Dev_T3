@@ -10,7 +10,7 @@ const ProductCard = (props) => {
     return (
         <div onClick={() => ProductNavigate('/IndProduct', { replace: true })} className="product-card">
             <Row>
-                <div className="product-image">
+                <div className="product-image" style={{ backgroundImage: `url(${props.img})`}}>
                     <div className='hoverProduct'>
                         <div className="hoverButt">Add to Cart</div>  
                         <div className="hoverButt">View</div>  

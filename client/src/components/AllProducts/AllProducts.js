@@ -6,11 +6,19 @@ import axios from 'axios';
 
 const AllProducts = (props) => {
 
-    const data = Lenses;
+    const [productCards, setProductCards] = useState();
 
-    axios.get('/api/allproducts', async (req, res) => {
-        console.log(res);
-    });
+    useEffect(() =>{
+
+        axios.get('http://localhost:2000/api/allproducts')
+        .then((res) => {
+            console.log(res.data)
+            const data = res.data;
+
+            setProductCards(data.map(Lens =>(<ProductCard key={Lens.id} img = {Lens.images[0]} name = {Lens.name} price = {Lens.ProductProperties[0].price} discount={Lens.ProductProperties[0].discount}/>)))
+        })
+
+    }, []);
 
     return (
 <>
@@ -36,7 +44,7 @@ const AllProducts = (props) => {
                         <select className="SortBlock"></select>
                     </Col>
                 </Row>
-                    {data.map(Lens =>(<ProductCard key={Lens.id} name = {Lens.name} price = {Lens.ProductProperties[1].price} discount={Lens.ProductProperties[1].discount}/>))}
+                    {productCards}
             </Col>
         </Row>
 </>
