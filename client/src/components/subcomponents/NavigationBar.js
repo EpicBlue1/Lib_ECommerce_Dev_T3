@@ -21,8 +21,8 @@ const NavigationBar = () => {
             <Col className='NavObject Item pfp' md={{span:1}}></Col>
             <Col onMouseEnter={() => setShow(true)}
                 onMouseLeave={() => setShow(false)} 
-            className='NavObject' md={{span:1, offset:1}}>
-                <div className='cartIcon'></div>
+                className='NavObject' md={{span:1, offset:1}}>
+                <div className={Show ? 'cartIcon cartHover' : 'cartIcon'}></div>
                 <div className='cartNum'>2</div>
                 <CartModal Show={Show} setShow={setShow}/>
             </Col>

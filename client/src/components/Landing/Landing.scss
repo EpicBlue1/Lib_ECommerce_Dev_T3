@@ -1,15 +1,34 @@
 .SliderSec{
-    background-color: $primary_dark;
+  background-color: $primary_dark;
+  background-color: white;
+  // background-image: linear-gradient(to left, #ffffff 80%, $primary_dark 80%);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.10);
 }
 
 .SliderSubSec{
     padding-left: 8vh;
-    padding-top: 10vh;
-    height: 46vh;
+    padding-top: 12vh;
+    height: max-content;
+}
+
+.SliderSubSecRight{
+  padding-left: 8vh;
+  padding-top: 10vh;
+  background-color: #ffffff !important;
+  height: max-content;
+}
+
+.SliderSubSecPar{
+  width: 85%;
+  color: black;
+}
+
+.heading{
+  color: black !important;
 }
 
 .Slider{
-    padding: 4% !important;
+    padding: 2% !important;
 }
 
 .ImageCon{
@@ -27,18 +46,19 @@
     height: 10%;
     width: 55%;
     display:flex;
-    background-color: $primary_dark;
     z-index: 999;
     justify-content: center;
 }
 
 .SliderImage{
-    height: 30vh;
+    height: 32vh;
     width: 385px;
     background-image: url('../../img/Canon\ EF\ 200mm\ f2\ L\ IS\ USM\ Lens.png');
     background-position: center;
-    background-size: 65%;
+    background-size: 75%;
     background-repeat: no-repeat;
+    text-align: center;
+    color: black;
 }
 
 .slide {
@@ -79,8 +99,9 @@
     top: 50%;
     left: 20px;
     transform: translateY(-60%);
-    background-image: url('../../img/BackArrow.svg');
+    background-image: url('../../img/BackArrow.png');
     background-position: center;
+    opacity: 15%;
     background-repeat: no-repeat;
     background-size: contain;
   }
@@ -89,8 +110,9 @@
     top: 46%;
     right: 20px;
     transform: translateY(-60%);
-    background-image: url('../../img/BackArrow.svg');
+    background-image: url('../../img/BackArrow.png');
     background-position: center;
+    opacity: 15%;
     background-repeat: no-repeat;
     background-size: contain;
     transform: scaleX(-1);
@@ -105,11 +127,11 @@
   }
 
   .dot {
-    width: 8px;
-    height: 8px;
+    width: 6px !important;
+    height: 6px !important;
     border-radius: 50%;
-    margin: 0 10px;
-    background: #ffffff;
+    margin: 0 15px;
+    background: #d4d4d4;
     cursor: pointer;
   }
 

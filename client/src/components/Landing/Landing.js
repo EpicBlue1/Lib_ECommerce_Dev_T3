@@ -47,18 +47,18 @@ const Landing = (props) => {
     <>
         {props.MainNavBar}
         <Row className="SliderSec">
-            <Col className="SliderSubSec" md={{span: 5, offset: 1}}>
-                <h1 className="txtGrayLight"><b>Welcome to Life Is Beautiful</b></h1>
+            <Col className="SliderSubSec" md={{span: 6, offset: 1}}>
+                <h1 className="txtGrayDark"><b>Welcome to Life Is Beautiful</b></h1>
                 <br></br>
-                <p>Lorem ipsum dolor sit amet. Ea maxime recusandae in voluptatem quia et voluptatibus consequatur qui galisum impedit vel magni illum qui numquam tenetur est ipsam veniam. Vel repellendus molestiae est ipsam consectetur id autem enim ut consequatur fugit est voluptatem impedit.</p>
+                <p className="SliderSubSecPar txtGrayDark">Lorem ipsum dolor sit amet. Ea maxime recusandae in voluptatem quia et voluptatibus consequatur qui galisum impedit vel magni illum qui numquam tenetur est ipsam veniam. Vel repellendus molestiae est ipsam consectetur id autem enim ut consequatur fugit est voluptatem impedit.</p>
             </Col>
 
-            <Col className="SliderSubSec Slider" md={{span: 6}}>
+            <Col className="SliderSubSecRight Slider" md={{span: 5}}>
             <div className="ImageCon">            
                 {data.map((obj, i) => {
                     return (
                         <div key={obj.id} className={slideIndex === i + 1 ? 'slide active-anim' : 'slide'}>
-                            <div className="SliderImage">{obj.name}</div>
+                            <div className="SliderImage txtGrayDark"><b>{obj.name}</b></div>
                         </div>
                     )
                 })}
@@ -74,7 +74,6 @@ const Landing = (props) => {
                     )
                 })}
             </div>
-
             </Col>
         </Row>
         <Onsale/>

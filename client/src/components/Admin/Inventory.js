@@ -24,7 +24,6 @@ const Inventory = (props) => {
         </Col>
     </Row>
 </>
-
     );
 };
 

@@ -5,18 +5,18 @@ import Lenses from '../Mock/Lenses.json';
 
 const Pending = (props) => {
     return (
-<>        
-    {props.AdminNav}
-    <Row className="AllProductSec">
-        <Col className="AllProductSubSec" md={{span: 12}}>
-            <h1 className="txtGrayLight"><b>Inventory</b></h1>
-        </Col>
-
-        <Col className="Products" md={{span: 12}}>
-            <div className='Product'></div>
-        </Col>
-    </Row>
-</>
+        <>        
+            {props.AdminNav}
+                <Row className="AllProductSec">
+                    <Col className="AllProductSubSec" md={{span: 12}}>
+                        <h1 className="txtGrayLight"><b>Pending Orders</b></h1>
+                    </Col>
+                    
+                    <Col className="Products" md={{span: 12}}>
+                        <div className='Product'></div>
+                    </Col>
+                </Row>
+        </>
     );
 };
 

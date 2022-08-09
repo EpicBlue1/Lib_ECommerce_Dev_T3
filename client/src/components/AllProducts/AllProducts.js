@@ -2,19 +2,24 @@ import React, {useState, useEffect} from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import ProductCard from '../subcomponents/ProductCard';
 import Lenses from '../Mock/Lenses.json';
+import axios from 'axios';
 
 const AllProducts = (props) => {
 
     const data = Lenses;
+
+    axios.get('/api/allproducts', async (req, res) => {
+        console.log(res);
+    });
 
     return (
 <>
     {props.MainNavBar}
         <Row className="AllProductSec">
             <Col className="AllProductSubSec" md={{span: 12}}>
-                <h1 className="txtGrayLight"><b>Camera Lenses & Accessories</b></h1>
+                <h1 className="txtGrayDark"><b>Camera Lenses & Accessories</b></h1>
                 <br></br>
-                <p>Lorem ipsum dolor sit amet. Ea maxime recusandae in voluptatem quia et voluptatibus consequatur qui galisum impedit vel magni illum qui numquam tenetur est ipsam veniam. Vel repellendus molestiae est ipsam consectetur id autem enim ut consequatur fugit est voluptatem impedit.</p>
+                <p className="txtGrayDark">Lorem ipsum dolor sit amet. Ea maxime recusandae in voluptatem quia et voluptatibus consequatur qui galisum impedit vel magni illum qui numquam tenetur est ipsam veniam. Vel repellendus molestiae est ipsam consectetur id autem enim ut consequatur fugit est voluptatem impedit.</p>
             </Col>
 
             <Col className="FilterSec" md={{span: 3}}>

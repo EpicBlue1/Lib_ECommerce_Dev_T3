@@ -12,10 +12,11 @@
     font-weight: 700;
     font-style: italic;
     font-size: 32px;
+    padding-top: 18px;
 }
 
 .Item{
-    margin-top: 14px;
+    margin-top: 20px;
 }
 
 .pfp{
@@ -87,6 +88,7 @@
     width: 200px;
     font-size: 16px;
     font-style: italic;
+    cursor: pointer;
 }
 
 .productTextDiscount{
@@ -144,13 +146,18 @@
     background-repeat: no-repeat;
 }
 
+.cartHover{
+    background-color: #d4d4d4;
+    border-radius: 3px;
+}
+
 .cartNum{
     margin: 0 auto;
-    margin-top: 4px;
+    margin-top: 3px;
     text-align: center;
     padding: 0 !important;
     width: 55px;
-    height: 14px;
+    height: 16px;
     background-color: $secondary_vanilla;
     border-radius: 25px;
     color: black !important;

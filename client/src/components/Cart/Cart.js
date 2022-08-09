@@ -8,9 +8,9 @@ const Cart = (props) => {
         {props.MainNavBar}
         <Row className="SliderSec">
             <Col className="AllProductSubSec" md={{span: 12}}>
-                <h1 className="txtGrayLight"><b>Cart</b></h1>
+                <h1 className="txtGrayDark"><b>Cart</b></h1>
                 <br></br>
-                <p>Lorem ipsum dolor sit amet. Ea maxime recusandae in voluptatem quia et voluptatibus consequatur qui galisum impedit vel magni illum qui numquam tenetur est ipsam veniam. Vel repellendus molestiae est ipsam consectetur id autem enim ut consequatur fugit est voluptatem impedit.</p>
+                <p className="txtGrayDark">Lorem ipsum dolor sit amet. Ea maxime recusandae in voluptatem quia et voluptatibus consequatur qui galisum impedit vel magni illum qui numquam tenetur est ipsam veniam. Vel repellendus molestiae est ipsam consectetur id autem enim ut consequatur fugit est voluptatem impedit.</p>
             </Col>
             <Col className="CartConParent" md={12}>
                 <div className="CartContainer">
