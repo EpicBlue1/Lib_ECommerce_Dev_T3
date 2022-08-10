@@ -2,15 +2,22 @@ import React, {useState, useEffect} from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import Lenses from '../Mock/Lenses.json';
+import {useLocation} from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const IndProduct = (props) => {
 
+    const Navigate = useNavigate();
+
     const data = Lenses;
+    const location = useLocation();
     
     const [slideIndex, setSlideIndex] = useState(1);
     const moveDot = i => {
         setSlideIndex(i);
     }
+
+    console.log(location.state.img)
 
     return (
     <>
@@ -20,9 +27,9 @@ const IndProduct = (props) => {
                 <div className="CartContainer">
                     <Row>
                         <Col className="Product-Visual-Side" md={7}>
-                            <Link to="/AllProducts"><div className="BackIcon"></div></Link>
-                            <div className='Product_Name'><h1>Canon EF 200mm f2</h1></div>
-                            <div className="IndProductImage">
+                            <div onClick={()=>Navigate(-1)} className="BackIcon"></div>
+                            <div className='Product_Name'><h1>{location.state.name}</h1></div>
+                            <div className="IndProductImage" style={{ backgroundImage: `url(${location.state.img})`}}>
                             </div>
                             <br></br>
                             <h2 className='txtGrayDark'><b>More Zoom Lenses</b></h2>

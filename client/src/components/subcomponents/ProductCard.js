@@ -7,8 +7,13 @@ const ProductCard = (props) => {
 
     const ProductNavigate = useNavigate();
 
+
+    const indProduct = () => {
+        ProductNavigate('/IndProduct', {state:{id:props.id, name:props.name, img:props.img}});
+    }
+
     return (
-        <div onClick={() => ProductNavigate('/IndProduct', { replace: true })} className="product-card">
+        <div onClick={indProduct} className="product-card">
             <Row>
                 <div className="product-image" style={{ backgroundImage: `url(${props.img})`}}>
                     <div className='hoverProduct'>

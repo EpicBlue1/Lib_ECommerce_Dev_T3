@@ -3,20 +3,16 @@ import { Container, Row, Col } from 'react-bootstrap';
 import ProductCard from '../subcomponents/ProductCard';
 import Lenses from '../Mock/Lenses.json';
 import axios from 'axios';
+import { useNavigate } from 'react-router';
 
 const AllProducts = (props) => {
 
     const [productCards, setProductCards] = useState();
+    const data = props.AllProductData
 
     useEffect(() =>{
 
-        axios.get('http://localhost:2000/api/allproducts')
-        .then((res) => {
-            console.log(res.data)
-            const data = res.data;
-
-            setProductCards(data.map(Lens =>(<ProductCard key={Lens.id} img = {Lens.images[0]} name = {Lens.name} price = {Lens.ProductProperties[0].price} discount={Lens.ProductProperties[0].discount}/>)))
-        })
+        setProductCards(data.map(Lens =>(<ProductCard key={Lens._id} img = {Lens.images[0]} name = {Lens.name} price = {Lens.ProductProperties[0].price} discount={Lens.ProductProperties[0].discount} id={Lens._id}/>)))
 
     }, []);
 

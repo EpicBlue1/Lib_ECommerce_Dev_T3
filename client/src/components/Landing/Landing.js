@@ -16,7 +16,27 @@ const Landing = (props) => {
 
     const [slideIndex, setSlideIndex] = useState(1);
 
-    console.log(productImages);
+    const Next = () => {
+        if(slideIndex !== productImages.length){
+            setSlideIndex(slideIndex + 1);
+        } else if(slideIndex === productImages.length){
+            setSlideIndex(1);
+        }
+    }
+
+    const Prev = () => {
+        if(slideIndex !== productImages.length){
+            setSlideIndex(slideIndex - 1);
+            console.log(slideIndex);
+        } else if(slideIndex === 1){
+            setSlideIndex(productImages.length - 1);
+            console.log(slideIndex);
+        }
+    }
+
+    const moveDot = i => {
+        setSlideIndex(i);
+    }
 
     useEffect(() =>{
 
@@ -43,28 +63,6 @@ const Landing = (props) => {
         })
 
     }, []);
-
-    const Next = () => {
-        if(slideIndex !== productImages.length){
-            setSlideIndex(slideIndex + 1);
-        } else if(slideIndex === productImages.length){
-            setSlideIndex(1);
-        }
-    }
-
-    const Prev = () => {
-        if(slideIndex !== productImages.length){
-            setSlideIndex(slideIndex - 1);
-            console.log(slideIndex);
-        } else if(slideIndex === 1){
-            setSlideIndex(productImages.length - 1);
-            console.log(slideIndex);
-        }
-    }
-
-    const moveDot = i => {
-        setSlideIndex(i);
-    }
 
     useEffect(()=>{
         const interval = setInterval(()=>{
