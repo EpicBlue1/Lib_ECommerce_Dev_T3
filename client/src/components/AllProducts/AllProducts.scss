@@ -30,12 +30,13 @@
 
 .SortSec{
     height: 50px !important;
-    display: flex;
+    // display: flex;
     color: black !important;
 }
 
 .Sort_By{
-    margin-left: 20%;
+    margin-left: 20vh;
+    float: right !important;
     padding-top: 18px;
     font-size: 18px;
     color: black !important;
@@ -47,10 +48,12 @@
 }
 
 .SortBlock{
+    float: right !important;
     width: 200px;
     height: 35px;
     margin-top: 12px !important;
-    margin-left: 40px;
+    margin-left: 20px;
+    margin-right: 10%;
     border: 1px solid #fff;
     padding-right: 5px;
     background-color: white !important;

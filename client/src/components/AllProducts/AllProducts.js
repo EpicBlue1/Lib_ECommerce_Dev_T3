@@ -5,16 +5,15 @@ import Lenses from '../Mock/Lenses.json';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
 
-const AllProducts = (props) => {
-
-    const [productCards, setProductCards] = useState();
+const AllProducts = (props) => { 
+    
     const data = props.AllProductData
 
-    useEffect(() =>{
-
-        setProductCards(data.map(Lens =>(<ProductCard key={Lens._id} img = {Lens.images[0]} name = {Lens.name} price = {Lens.ProductProperties[0].price} discount={Lens.ProductProperties[0].discount} id={Lens._id}/>)))
-
-    }, []);
+    if(data === undefined){
+        return(
+            <div>Loading...</div>
+        )
+    }
 
     return (
 <>
@@ -27,7 +26,16 @@ const AllProducts = (props) => {
             </Col>
 
             <Col className="FilterSec" md={{span: 3}}>
-                <div className="FilterBlock"></div>
+                <div className="FilterBlock">
+                    <h1>Filter By Brand</h1>
+                        <input type="radio" name="radio" />
+                        <input type="radio" name="radio" />
+                        <input type="radio" name="radio" />
+                    <h1>Filter By Category</h1>
+                        <input type="radio" name="radio" />
+                        <input type="radio" name="radio" />
+                        <input type="radio" name="radio" />
+                </div>
             </Col>
 
             <Col className="Products" md={{span: 9}}>
@@ -36,11 +44,11 @@ const AllProducts = (props) => {
                         <p className="Sort_Num">500 Products</p>
                     </Col>
                     <Col className="SortSec" md={6}>
+                    <select className="SortBlock"></select>
                         <p className="Sort_By">Sort by:</p>
-                        <select className="SortBlock"></select>
                     </Col>
                 </Row>
-                    {productCards}
+                    {props.AllProductData.map(Lens =>(<ProductCard key={Lens._id} img = {Lens.images[0]} name = {Lens.name} price = {Lens.ProductProperties[0].price} discount={Lens.ProductProperties[0].discount} id={Lens._id}/>))}
             </Col>
         </Row>
 </>

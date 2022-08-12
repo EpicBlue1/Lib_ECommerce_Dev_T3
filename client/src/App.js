@@ -14,7 +14,7 @@ import PendingOrders from './components/Admin/Pending';
 
 function App() {
 
-  const [AllProductData, setAllProductData] = useState();
+  const [AllProductData, setAllProductData] = useState([]);
 
   useEffect(() =>{
 
@@ -23,11 +23,10 @@ function App() {
         console.log(res.data)
         const data = res.data;
 
-        setAllProductData(data)
+        setAllProductData(data);
     })
 
   }, []);
-
 
   return (
     <Container fluid>
@@ -36,8 +35,7 @@ function App() {
           <Route path="/AllProducts" element={<AllProducts AllProductData={AllProductData} MainNavBar={<NavBar />}/>} />
           <Route path="/Cart" element={<Cart MainNavBar={<NavBar />}/>} />
           <Route path="/IndProduct" element={<IndProduct MainNavBar={<NavBar />}/>} />
-          <Route path={`/product/:productName/:productId`} element={<IndProduct/>}/>
-          <Route path="/Inventory" element={<Inventory AdminNav={<AdminNavBar/>}/>} />
+          <Route path="/Inventory" element={<Inventory AllProductData={AllProductData} AdminNav={<AdminNavBar/>}/>} />
           <Route path="/PendingOrders" element={<PendingOrders AdminNav={<AdminNavBar/>}/>} />
         </Routes>
       <Footer />

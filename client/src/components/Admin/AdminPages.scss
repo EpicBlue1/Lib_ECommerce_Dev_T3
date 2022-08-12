@@ -8,6 +8,7 @@
     font-style: italic;
     background-color: $primary_dark;
     color: black;
+    cursor: pointer;
 }
 
 .Product{
@@ -16,4 +17,75 @@
     height: 60px;
     background-color: white;
     margin-top: 10px;
+    display: flex;
+    padding: 5px;
+}
+
+.inv-img{
+    margin-left: 1%;
+    width: 50px;
+    height: 50px;
+    // background-color: black;
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.inv-proName{
+    width: 20%;
+    height: 50px;
+    // background-color: black;
+    margin-left: 5%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-top: 1%;
+}
+
+.inv-icon{
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    margin-left: 5%;
+}
+
+.inv-stock{
+    width: 10%;
+    height: 50px;
+    // background-color: black;
+    margin-left: 5%;
+    text-align: center;
+    padding-top: 1%;
+}
+
+.inv-stock-red{
+    width: 10%;
+    height: 25px;
+    margin-top: 1%;
+    text-align: center;
+    border-radius: 5px;
+    background-color: $red;
+    margin-left: 5%;
+    // padding-top: 1%;
+}
+
+.inv-price{
+    width: 10%;
+    height: 50px;
+    // background-color: black;
+    margin-left: 4%;
+    padding-top: 1%;
+}
+
+.discoount_yes{
+    background-color: $green;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.inv-edit{
+    width: 50px;
+    height: 50px;
+    margin-left: 8%;
+    background-color: black;
 }

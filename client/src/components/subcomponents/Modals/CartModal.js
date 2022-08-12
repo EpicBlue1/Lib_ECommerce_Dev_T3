@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import CartProduct from './CartProduct';
+import CartProduct from '../CartProduct';
 import {Link} from 'react-router-dom';
 
 const CartModal = (props) => {

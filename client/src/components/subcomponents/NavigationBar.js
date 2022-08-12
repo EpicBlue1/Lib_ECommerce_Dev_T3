@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
-import CartModal from './CartModal';
+import CartModal from './Modals/CartModal';
 
 const NavigationBar = () => {
 

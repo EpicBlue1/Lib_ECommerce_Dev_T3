@@ -13,15 +13,15 @@ const ProductCard = (props) => {
     }
 
     return (
-        <div onClick={indProduct} className="product-card">
+        <div className="product-card">
             <Row>
                 <div className="product-image" style={{ backgroundImage: `url(${props.img})`}}>
                     <div className='hoverProduct'>
                         <div className="hoverButt">Add to Cart</div>  
-                        <div className="hoverButt">View</div>  
+                        <div onClick={indProduct} className="hoverButt">View</div>  
                     </div>
                 </div>
-                <Col className="productText" md={{span: 12, offset: 1}}>{props.name}</Col>
+                <Col onClick={indProduct} className="productText" md={{span: 12, offset: 1}}>{props.name}</Col>
                 <Col className='productText' md={{span: 12, offset: 1}}><div className="productTextDiscount">{props.price}</div><b>R{props.price - props.discount}</b></Col>
             </Row>
         </div>
