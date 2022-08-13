@@ -3,7 +3,7 @@ const productSchema = require('./models/products');
 const ordersSchema = require('./models/orders');
 const usersSchema = require('./models/users')
 
-const router = express();
+const router = express()
 
 //add products
 router.post('/api/addproduct', (req, res) => {
