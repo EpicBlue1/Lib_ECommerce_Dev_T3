@@ -62,7 +62,7 @@ const Landing = (props) => {
             }))
         })
 
-    }, []);
+    }, [slideIndex]);
 
     useEffect(()=>{
         const interval = setInterval(()=>{
