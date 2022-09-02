@@ -1,7 +1,7 @@
 import React, {useRef, useState} from 'react';
 import axios from 'axios';
 
-const AddProduct = (props) => {
+const EditProduct = (props) => {
 
     const prodName = useRef(),
     brand = useRef(),
@@ -15,7 +15,32 @@ const AddProduct = (props) => {
         props.setShow(false);
     }
 
-    const AddProduct = () => {
+    const editProduct = () => {
+        
+        let template = {
+            name: prodName.current.value,
+            brand: brand.current.value,
+            category: category.current.value,
+            ProductProperties: [
+                {
+                    ProductProperty: prodName.current.value,
+                    totalAvail: +totalAvail.current.value,
+                    price: +price.current.value,
+                    discount: +discount.current.value
+                }
+            ],
+            description: description.current.value,
+            images: [
+                    prodName.current.value
+            ]
+        }
+
+        axios.post('http://localhost:2000/api/addproduct', template);
+
+        props.setShow(false);
+    }
+
+    const delProduct = () => {
         
         let template = {
             name: prodName.current.value,
@@ -41,9 +66,9 @@ const AddProduct = (props) => {
     }
 
     return (
-        <div className={props.show ? "add-product" : "hide"}>
+        <div className={props.show ? "edit-product" : "hide"}>
 
-            <h1>Add Product</h1>
+            <h1>Edit Product</h1>
             <br></br>
             <input ref={prodName} className='input-style' type='text' placeholder='Product Name' />
             <select ref={brand} className='input-style'>
@@ -61,11 +86,12 @@ const AddProduct = (props) => {
             <input ref={totalAvail} className='input-style' type='number' placeholder='Total Available' />
             <input ref={price} className='input-style' type='text' placeholder='Price' />
             <input ref={discount} className='input-style' type='number' placeholder='Discount' />
-            <button onClick={AddProduct} className='add-btn'>Add Product</button>
+            <button onClick={editProduct} className='add-btn'>Add Product</button>
+            <button onClick={delProduct} className='add-btn'>Delete Product</button>
             <button onClick={hideModal} className="closeBtn">Close</button>
             
         </div>
     );
 };
 
-export default AddProduct;
+export default EditProduct;

@@ -10,7 +10,7 @@ const Inventory = (props) => {
     const [show, setshow] = useState(false);
     
     const showModal = () => {
-            setshow(true);
+        setshow(true);
     }
 
     if(data === undefined){
@@ -18,6 +18,11 @@ const Inventory = (props) => {
             <div>Loading...</div>
         )
     }
+
+    //data checker
+    if(data === undefined || data === ''){
+        return (<div>Loading...</div>)
+    } 
     
     return (
 <>        
