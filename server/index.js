@@ -7,8 +7,6 @@ require('dotenv/config')
 
 const app = express();
 
-
-
 const PORT = process.env.PORT || 2000;
 
 //middleware
@@ -16,6 +14,7 @@ app.use(cors({origin: "http://localhost:3000"}))
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(routes);
+app.use('/images', express.static('images'));
 
 //connect to database
 mongoose.connect(process.env.DB_CONNECTION, (err)=>{

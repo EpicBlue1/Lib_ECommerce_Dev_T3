@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import EditProduct from '../../subcomponents/Modals/editProduct';
+import EditProduct from '..//../subcomponents/Modals/editProduct';
 
 const InventoryItem = (props) => {
 
@@ -13,6 +13,7 @@ const InventoryItem = (props) => {
     //booleans
     const [discount, setdiscount] = useState();
     const [lowStock, setLowStock] = useState();
+
     //text
     const [discounted, setdiscounted] = useState("");
 
@@ -30,8 +31,8 @@ const InventoryItem = (props) => {
     }, [])
 
     return (
-        <div className='Product'>
-            <EditProduct show={showEd} setShow={setshowEdit}/>
+        <div key={props.id} className='Product'>
+            <EditProduct setUpdateRender={props.setUpdateRender} updateRender={props.updateRender} id={props.id} img={props.img} name={props.name} stock={props.stock} price={props.price} discount = {props.discount} description={props.description} ProductProperty={props.ProductProperty} ProductProperties={props.ProductProperties} brand={props.brand} show={showEd} setShow={setshowEdit}/>
             <div className='inv-img' style={{ backgroundImage: `url(${props.img})`}}></div>
             <div className='inv-proName'>{props.name}</div>
             <div className='inv-icon'></div>

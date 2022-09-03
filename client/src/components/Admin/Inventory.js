@@ -1,23 +1,21 @@
-import React, {useState, useEffect} from 'react';
+import React, {useRef, useEffect, useState, useContext} from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import AddProduct from '../subcomponents/Modals/addProduct';
 import InventoryItem from './AdminItems/InventoryItem';
+import { RenderContext } from '../Contexts/RenderContext';
 
 const Inventory = (props) => {
     
     const data = props.AllProductData;
 
     const [show, setshow] = useState(false);
+    const [updateRender, setUpdateRender] = useState(false)
     
     const showModal = () => {
         setshow(true);
     }
 
-    if(data === undefined){
-        return(
-            <div>Loading...</div>
-        )
-    }
+    const {rendered, setRender} = useContext(RenderContext)
 
     //data checker
     if(data === undefined || data === ''){
@@ -38,7 +36,7 @@ const Inventory = (props) => {
         </Col>
 
         <Col className="Products" md={{span: 9}}>
-            {data.map(item => (<InventoryItem img={item.images[0]} name={item.name} stock={item.ProductProperties[0].totalAvail} price={item.ProductProperties[0].price} discount = {item.ProductProperties[0].discount}/>))}
+            {data.map(item => (<InventoryItem setUpdateRender={setUpdateRender} updateRender={updateRender} key={item._id} id={item._id} brand={item.brand} img={item.image} name={item.name} ProductProperty={item.ProductProperties[0].ProductProperty} ProductProperties={item.ProductProperties} stock={item.ProductProperties[0].totalAvail} price={item.ProductProperties[0].price} discount = {item.ProductProperties[0].discount} description={item.description}/>))}
         </Col>
     </Row>
 </>

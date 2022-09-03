@@ -19,7 +19,7 @@ const productSchema = mongoose.Schema({
     },
     ProductProperties: [
         {
-            ProductProperty: {
+            productProperty: {
                 type: String,
                 required: true,
             },
@@ -34,6 +34,10 @@ const productSchema = mongoose.Schema({
             discount: {
                 type: Number,
                 required: true
+            },
+            productCode:{
+                type: Number,
+                required: true
             }
         }
     ],
@@ -41,12 +45,10 @@ const productSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    images: [
-        {
-            type: String,
-            required: true
-        }
-    ]
+    image:{
+        type: String,
+        required: true
+    }
 });
 
 module.exports = mongoose.model('lensesnaccessories', productSchema);

@@ -1,24 +1,43 @@
 const express = require('express');
+const router = express();
 const productSchema = require('./models/products');
 const ordersSchema = require('./models/orders');
-const usersSchema = require('./models/users')
+const usersSchema = require('./models/users');
+const multer = require('multer');
+const path = require('path');
 
-const router = express();
+//multer
+const productImage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, './images')
+    },
+    filename: (req, file, cb) =>{
+        console.log(file)
+        //credit: Mike :)
+        cb(null, Date.now() + path.extname(file.originalname))
+    }
+})
+
+const uploadProductImage = multer({storage: productImage});
 
 //add products
-router.post('/api/addproduct', (req, res) => {
+router.post('/api/addproduct', uploadProductImage.single('prodImage'), (req, res) => {
+    let data = JSON.parse(req.body.prodInfo)
+
     const newProduct = new productSchema(
         {
-            name: req.body.name,
-            brand: req.body.brand,
-            category: req.body.category,
-            ProductProperties: req.body.ProductProperties.ProductProperties,
-            ProductProperty: req.body.ProductProperties.ProductProperty,
-            totalAvail: req.body.ProductProperties.totalAvail,
-            price: req.body.ProductProperties.price,
-            discount: req.body.discount,
-            description: req.body.description,
-            images: req.body.images
+            name: data.name,
+            brand: data.brand,
+            category: data.category,
+            ProductProperties: {
+                productProperty: data.ProductProperties.productProperty,
+                totalAvail: data.ProductProperties.totalAvail,
+                price: data.ProductProperties.price,
+                productCode: data.ProductProperties.productCode,
+                discount: data.ProductProperties.discount,
+            },
+            description: data.description,
+            image: req.file.filename
         }
     );
 

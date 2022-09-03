@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import axios from 'axios';
 import NavBar from './components/subcomponents/NavigationBar';
 import AdminNavBar from './components/Admin/AdminNav';
@@ -11,10 +11,13 @@ import Cart from './components/Cart/Cart';
 import IndProduct from './components/IndividualProduct/IndProduct';
 import Inventory from './components/Admin/Inventory';
 import PendingOrders from './components/Admin/Pending';
+import { RenderContext } from './components/Contexts/RenderContext';
 
 function App() {
 
   const [AllProductData, setAllProductData] = useState([]);
+
+  const {rendered, setRender} = useContext(RenderContext)
 
   useEffect(() =>{
 
@@ -26,7 +29,7 @@ function App() {
         setAllProductData(data);
     })
 
-  }, []);
+  }, [rendered]);
 
   return (
     <Container fluid>

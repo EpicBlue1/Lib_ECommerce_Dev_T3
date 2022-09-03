@@ -9,7 +9,7 @@ const AllProducts = (props) => {
     untouchedData = props.AllProductData.sort((a, b) => a.name.localeCompare(b.name)),
     [filterYes, setFilterYes] = useState(true),
     [filterBy, setFilterBy] = useState(),
-    [card, setCard] = useState(data.map(Lens =>(<ProductCard key={Lens._id} img = {Lens.images[0]} name = {Lens.name} price = {Lens.ProductProperties[0].price} discount={Lens.ProductProperties[0].discount} id={Lens._id}/>))),
+    [card, setCard] = useState(data.map(Lens =>(<ProductCard key={Lens._id} img = {Lens.image} name = {Lens.name} price = {Lens.ProductProperties[0].price} discount={Lens.ProductProperties[0].discount} id={Lens._id}/>))),
     [dropDownMode, setDropDownMode] = useState("No Sort"),
     dropDown = useRef()
         
@@ -66,7 +66,7 @@ const AllProducts = (props) => {
             prod = filter.sort((a, b) => b.ProductProperties[0].price - a.ProductProperties[0].price);
         }
 
-        setCard(prod.map(Lens =>(<ProductCard key={Lens._id} img = {Lens.images[0]} name = {Lens.name} price = {Lens.ProductProperties[0].price} discount={Lens.ProductProperties[0].discount} id={Lens._id}/>)));
+        setCard(prod.map(Lens =>(<ProductCard key={Lens._id} img = {Lens.image} name = {Lens.name} price = {Lens.ProductProperties[0].price} discount={Lens.ProductProperties[0].discount} id={Lens._id}/>)));
 
         console.log(data);
 
@@ -137,11 +137,6 @@ const AllProducts = (props) => {
                         />
                         <p>Sony</p>
 
-                    <h3 className='marginTop-h3'>Filter By Category</h3>
-                        <input type="radio" name="radio" />
-                        <p>Lenses</p>
-                        <input type="radio" name="radio" />
-                        <p>Accessories</p>
                     <div onClick={clearFilter} className='clearFilter-btn'>Clear Filters</div>
                 </div>
             </Col>
