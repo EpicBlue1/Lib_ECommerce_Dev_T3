@@ -34,16 +34,19 @@ function App() {
   }, [rendered]);
 
   useEffect(() => {
-    let admin = sessionStorage.getItem('admin')
+    const admin = sessionStorage.getItem('admin')
+    console.log(admin)
     if(admin){
       Navigate('/Inventory');
+    } else if(admin === '' || admin === null || admin === undefined|| admin === false){
+      Navigate('/');
     }
   }, [])
 
   return (
     <Container fluid>
         <Routes>
-          <Route path="/" element={<Landing MainNavBar={<NavBar />}/>} />
+          <Route path="/" element={<Landing setRender={setRender} AllProductData={AllProductData} MainNavBar={<NavBar Render={rendered} />}/>} />
           <Route path="/AllProducts" element={<AllProducts AllProductData={AllProductData} MainNavBar={<NavBar />}/>} />
           <Route path="/Cart" element={<Cart MainNavBar={<NavBar />}/>} />
           <Route path="/IndProduct" element={<IndProduct MainNavBar={<NavBar />}/>} />

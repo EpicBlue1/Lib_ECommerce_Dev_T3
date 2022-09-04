@@ -1,23 +1,20 @@
-import React, {useState, useEffect} from 'react';
+    import React, {useState, useEffect} from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import ProductCard from '../subcomponents/ProductCard';
 import axios from 'axios';
 
-const OnSale = () => {
+const OnSale = (props) => {
     const [productCards, setProductCards] = useState();
+    const AllProductData= props.AllProductData
 
     useEffect(() =>{
 
-        axios.get('http://localhost:2000/api/allproducts')
-        .then((res) => {
-            console.log(res.data)
-            let data = res.data;
-            data = data.filter(Lens => Lens.ProductProperties[0].discount > 0);
+        let data = AllProductData;
+        data = data.filter(Lens => Lens.ProductProperties[0].discount > 0);
 
-            setProductCards(data.map(Lens =>(<ProductCard key={Lens.id} img = {Lens.image} name = {Lens.name} price = {Lens.ProductProperties[0].price} discount={Lens.ProductProperties[0].discount}/>)))
-        })
+        setProductCards(data.map(Lens =>(<ProductCard setRender={props.setRender} key={Lens._id} id={Lens._id} img = {Lens.image} name = {Lens.name} price = {Lens.ProductProperties[0].price} discount={Lens.ProductProperties[0].discount} finalTotal={Lens.ProductProperties[0].price - Lens.ProductProperties[0].discount}/>)))
 
-    }, []);
+    }, [AllProductData]);
 
     return (
         <Row className="SaleSec">

@@ -4,7 +4,7 @@ import {Link, useNavigate} from 'react-router-dom';
 import CartModal from './Modals/CartModal';
 import axios from 'axios';
 
-const NavigationBar = () => {
+const NavigationBar = (props) => {
 
     const [Show, setShow] = useState(false),
     [logPop, setLogPop] = useState(false), 
@@ -13,8 +13,24 @@ const NavigationBar = () => {
     form = useRef(),
     [logedIn, setLogedIn] = useState('Log In'),
     [Log, setLog] = useState(false),
+    [count, setCount] = useState(0),
     [validatePass, setValidatePass] = useState(false),
     Navigate = useNavigate()
+
+    let cart = JSON.parse(sessionStorage.getItem('cart'));
+
+    useEffect(()=> {
+
+        if(cart === undefined || cart === null){
+            setCount(0)
+        } else {
+        console.log(cart.length)
+            for (let i = 0; i < cart.length; i++) {
+                setCount(i + 1)
+            }
+        }
+
+    }, [props.Render]);
 
     const hidePop = () => {
         setLogPop(!logPop);
@@ -91,8 +107,8 @@ const NavigationBar = () => {
                 onMouseLeave={() => setShow(false)} 
                 className='NavObject' md={{span:1, offset:1}}>
                 <div className={Show ? 'cartIcon cartHover' : 'cartIcon'}></div>
-                <div className='cartNum'>2</div>
-                <CartModal Show={Show} setShow={setShow}/>
+                <div className='cartNum'>{count}</div>
+                <CartModal Rerender={props.Render} Show={Show} setShow={setShow}/>
             </Col>
         </Row>
     );

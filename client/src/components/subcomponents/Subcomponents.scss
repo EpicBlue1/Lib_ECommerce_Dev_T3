@@ -198,9 +198,31 @@
 .cart-product{
     margin: 0 auto;
     border-bottom: 1px solid white;
+    padding: 5px;
     width: 98%;
-    height: 75px;
-    background-color: green;
+    height: 80px;
+    text-align: left !important;
+}
+
+.cart-product p{
+    margin: 0;
+    padding: 0;
+}
+
+.cart-product h6{
+    font-weight: bold;
+}
+
+.remove-icon{
+    position: relative;
+    margin-top: -8%;
+    margin-left: 90%;
+    width: 15px;
+    height: 15px;
+    background-image: url('../../img/del_icon.svg');
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
 }
 
 .Subtotal{

@@ -21,10 +21,13 @@ const Inventory = (props) => {
     const {rendered, setRender} = useContext(RenderContext);
 
     useEffect(() => {
-        let admin = sessionStorage.getItem('admin')
+        const admin = sessionStorage.getItem('admin')
+        console.log(admin)
         if(!admin){
-          Navigate('/');
-        }
+            Navigate('/');
+        } else if(admin === '' || admin === null || admin === undefined|| admin === false){
+            Navigate('/');
+        } 
       }, [])
 
     //data checker

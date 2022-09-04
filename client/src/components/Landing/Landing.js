@@ -13,7 +13,7 @@ const Landing = (props) => {
     const [productCards, setProductCards] = useState();
     const [dots, setDots] = useState();
 
-    const [slideIndex, setSlideIndex] = useState(1);
+    const [slideIndex, setSlideIndex] = useState(3);
 
     const Next = () => {
         if(slideIndex !== productImages.length){
@@ -47,7 +47,7 @@ const Landing = (props) => {
             setproductImages(data.map((obj, i) => {
                 return (
                     <div key={obj.id} className={slideIndex === i + 1 ? 'slide active-anim' : 'slide'}>
-                        <div className="SliderImage txtGrayDark" style={{ backgroundImage: `url(${obj.image})`}}><b>{obj.name}</b></div>
+                        <div className="SliderImage txtGrayDark" style={{ backgroundImage: `url(${'http://localhost:2000/images/' + obj.image})`}}><b>{obj.name}</b></div>
                     </div>
                 )
             }))
@@ -61,13 +61,6 @@ const Landing = (props) => {
         })
 
     }, [slideIndex]);
-
-    useEffect(()=>{
-        const interval = setInterval(()=>{
-            Next();        
-        }, 3000);
-        return () => clearInterval(interval);
-    });
 
     return (
     <>
@@ -91,7 +84,7 @@ const Landing = (props) => {
             </div>
             </Col>
         </Row>
-        <Onsale/>
+        <Onsale setRender={props.setRender} AllProductData={props.AllProductData}/>
         <NewProds/>
         <Brands/>
     </>
