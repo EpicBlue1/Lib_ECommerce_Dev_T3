@@ -8,7 +8,7 @@ const AllProducts = (props) => {
     const [data, setData] = useState(props.AllProductData.sort((a, b) => a.name.localeCompare(b.name))),
     [filterYes, setFilterYes] = useState(true),
     [filterBy, setFilterBy] = useState(),
-    [card, setCard] = useState(data.map(Lens =>(<ProductCard brand={Lens.brand} description={Lens.description} key={Lens._id} img = {Lens.image} name = {Lens.name} price = {Lens.ProductProperties[0].price} discount={Lens.ProductProperties[0].discount} id={Lens._id}/>))),
+    [card, setCard] = useState(data.map(Lens =>(<ProductCard brand={Lens.brand} prodCode={Lens.ProductProperties[0].productCode} description={Lens.description} key={Lens._id} img = {Lens.image} name = {Lens.name} price = {Lens.ProductProperties[0].price} discount={Lens.ProductProperties[0].discount} id={Lens._id}/>))),
     [dropDownMode, setDropDownMode] = useState("No Sort"),
     dropDown = useRef()
         
@@ -65,7 +65,7 @@ const AllProducts = (props) => {
             prod = filter.sort((a, b) => b.ProductProperties[0].price - a.ProductProperties[0].price);
         }
 
-        setCard(prod.map(Lens =>(<ProductCard setRender={props.setRender} description={Lens.description} key={Lens._id} img = {Lens.image} name = {Lens.name} price = {Lens.ProductProperties[0].price} discount={Lens.ProductProperties[0].discount} brand={Lens.brand} id={Lens._id}/>)));
+        setCard(prod.map(Lens =>(<ProductCard prodCode={Lens.ProductProperties[0].productCode} setRender={props.setRender} description={Lens.description} key={Lens._id} img = {Lens.image} name = {Lens.name} price = {Lens.ProductProperties[0].price} discount={Lens.ProductProperties[0].discount} brand={Lens.brand} id={Lens._id}/>)));
 
         console.log(data);
 

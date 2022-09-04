@@ -5,14 +5,14 @@ import axios from 'axios';
 
 const OnSale = (props) => {
     const [productCards, setProductCards] = useState();
-    const AllProductData= props.AllProductData
+    const AllProductData= props.AllProductData;
 
     useEffect(() =>{
 
         let data = AllProductData;
         data = data.filter(Lens => Lens.ProductProperties[0].discount > 0);
 
-        setProductCards(data.map(Lens =>(<ProductCard brand={Lens.brand} setRender={props.setRender} key={Lens._id} id={Lens._id} img = {Lens.image} name = {Lens.name} price = {Lens.ProductProperties[0].price} discount={Lens.ProductProperties[0].discount} description={Lens.description} finalTotal={Lens.ProductProperties[0].price - Lens.ProductProperties[0].discount}/>)))
+        setProductCards(data.map(Lens =>(<ProductCard AllProductData={data} productCode={Lens.ProductProperties[0].productCode} brand={Lens.brand} setRender={props.setRender} key={Lens._id} id={Lens._id} img = {Lens.image} name = {Lens.name} price = {Lens.ProductProperties[0].price} discount={Lens.ProductProperties[0].discount} description={Lens.description} finalTotal={Lens.ProductProperties[0].price - Lens.ProductProperties[0].discount}/>)))
 
     }, [AllProductData]);
 

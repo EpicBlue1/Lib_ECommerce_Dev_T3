@@ -7,6 +7,10 @@ import { useNavigate } from "react-router-dom";
 const IndProduct = (props) => {
 
     const Navigate = useNavigate();
+    const [variants, setVariants] = useState()
+
+    const Data = props.AllProductData;
+    let filter = props.AllProductData;
 
     const location = useLocation();
     
@@ -14,6 +18,17 @@ const IndProduct = (props) => {
     const moveDot = i => {
         setSlideIndex(i);
     }
+
+    useEffect(() => {
+        console.log(location.state.productCode);
+        console.log(Data);
+        
+
+        // filter = Data.filter(Product => location.state.productCode === Product.ProductProperties[0].productCode);
+        // setVariants(filter)
+
+        console.log(variants)
+    }, [])
 
     console.log(location.state.img)
 
@@ -48,12 +63,9 @@ const IndProduct = (props) => {
                             </div>
 
                         {/* add hide and show if more than one image is available */}
-                            <h1 className="Left">Colors</h1>
+                            <h1 className="Left"></h1>
                             <h1 className="PriceText">R{location.state.price}</h1>
                             <div className='ColorBlocks'>
-                                <div className='Block_One'></div>
-                                <div className='Block_One'></div>
-                                <div className='Block_One'></div>
                             </div>
 
                             <h1 className="Qta">Quantity</h1>

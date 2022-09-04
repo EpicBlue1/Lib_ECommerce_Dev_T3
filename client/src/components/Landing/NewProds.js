@@ -11,11 +11,9 @@ const NewProds = (props) => {
 
         let data = AllProductData;
 
-        const last5 = data.slice(-5)
+        const last5 = data.slice(-5);
 
-        // console.log(length)
-
-        setProductCards(last5.map(Lens =>(<ProductCard brand={Lens.brand} setRender={props.setRender} key={Lens._id} id={Lens._id} img = {Lens.image} name = {Lens.name} price = {Lens.ProductProperties[0].price} discount={Lens.ProductProperties[0].discount} description={Lens.description} finalTotal={Lens.ProductProperties[0].price - Lens.ProductProperties[0].discount}/>)))
+        setProductCards(last5.map(Lens =>(<ProductCard productCode={Lens.ProductProperties[0].productCode} brand={Lens.brand} setRender={props.setRender} key={Lens._id} id={Lens._id} img = {Lens.image} name = {Lens.name} price = {Lens.ProductProperties[0].price} discount={Lens.ProductProperties[0].discount} description={Lens.description} finalTotal={Lens.ProductProperties[0].price - Lens.ProductProperties[0].discount}/>)))
 
     }, [AllProductData]);
 

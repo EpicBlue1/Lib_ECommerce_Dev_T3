@@ -15,14 +15,12 @@ const AddProduct = (props) => {
     discount = useRef(),
     img = useRef(),
     ImgPreview = useRef(),
+    form = useRef(),
 
     [showImg, setShowImg] = useState(),
     [Image, setImage] = useState(),
 
-    {rendered, setRender} = useContext(RenderContext)
-
-    // var temp="Accessories"; 
-    // category.current.value = temp
+    {rendered, setRender} = useContext(RenderContext);
 
     const hideModal = (e) => {
         e.preventDefault();
@@ -67,6 +65,7 @@ const AddProduct = (props) => {
         axios.post('http://localhost:2000/api/addproduct', newProduct)
         .then((res) => {
             console.log(res.data);
+            form.current.reset();
             setRender(prev => !prev)
         }).catch((err) => {
             console.log(err)
@@ -81,7 +80,7 @@ const AddProduct = (props) => {
             <h1>Add Product</h1>
             <br></br>
             <div className='preview-image'><img className='prevImage' ref={ImgPreview}/></div>
-            <form onSubmit={AddProduct}>
+            <form ref={form} onSubmit={AddProduct}>
                 <input required type='file' name='uploadedImg' ref={img} onChange={getImage}/>
                 <input required ref={prodName} className='input-style' type='text' placeholder='Product Name' />
                 <select ref={brand} className='input-style'>

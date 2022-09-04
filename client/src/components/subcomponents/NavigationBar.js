@@ -41,7 +41,7 @@ const NavigationBar = (props) => {
         } else {
             for (let i = 0; i < user.length; i++) {
                 setLogedIn('Log Out')
-                setLog(true)
+                setLog(true);
             }
         }
 
