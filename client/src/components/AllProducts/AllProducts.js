@@ -96,7 +96,7 @@ const AllProducts = (props) => {
     return (
 <>
     {props.MainNavBar}
-        <Row className="AllProductSec">
+        <Row className="AllProductConSec">
             <Col className="AllProductSubSec" md={{span: 12}}>
                 <h1 className="txtGrayDark"><b>Camera Lenses & Accessories</b></h1>
                 <br></br>

@@ -200,7 +200,7 @@
     border-bottom: 1px solid white;
     padding: 5px;
     width: 98%;
-    height: 80px;
+    height: 95px;
     text-align: left !important;
 }
 
@@ -210,7 +210,10 @@
 }
 
 .cart-product h6{
+    width: 100%;
+    height: 20px;
     font-weight: bold;
+    overflow-x: auto;
 }
 
 .remove-icon{
