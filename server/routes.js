@@ -2,7 +2,6 @@ const express = require('express');
 const router = express();
 const productSchema = require('./models/products');
 const ordersSchema = require('./models/orders');
-const usersSchema = require('./models/users');
 const multer = require('multer');
 const path = require('path');
 
@@ -56,49 +55,19 @@ router.post('/api/addproduct', uploadProductImage.single('prodImage'), (req, res
 });
 
 //add order
-router.post('/api/addorder', (req, res) => {
-    const newOrder = new ordersSchema(
-        {
-            orderNo: req.body.orderNo,
-            customer: req.body.customer,
-            DeliveryInfo: req.body.DeliveryInfo,
-            OrderDone: req.body.OrderDone,
-            products: req.body.products,
-            productId: req.body.products.productId,
-            qty: req.body.products.qty
-        }
-    );
-    newOrder.save()
-    .then(item => {
-        res.json(item);
-    })
-    .catch(err => {
-        res.status(400).json(
-            {
-                Message: "There was an error",
-                err: err
-            }
-        );
-    });
-});
-
-// //add user
-// router.post('/api/adduser', (req, res) => {
-//     const newUser = new usersSchema(
+// router.post('/api/addorder', (req, res) => {
+//     const newOrder = new ordersSchema(
 //         {
-//             userName: req.body.userName,
-//             userEmail: req.body.userEmail,
-//             ShippingAddress: req.body.ShippingAddress,
-//             stAddress: req.body.ShippingAddress.stAddress,
-//             city: req.body.ShippingAddress.city,
-//             province: req.body.ShippingAddress.province,
-//             postalCode: req.body.ShippingAddress.postalCode,
-//             userPassword: req.body.userPassword,
-//             admin: req.body.admin
+//             orderNo: req.body.orderNo,
+//             customer: req.body.customer,
+//             DeliveryInfo: req.body.DeliveryInfo,
+//             OrderDone: req.body.OrderDone,
+//             products: req.body.products,
+//             productId: req.body.products.productId,
+//             qty: req.body.products.qty
 //         }
 //     );
-
-//     newUser.save()
+//     newOrder.save()
 //     .then(item => {
 //         res.json(item);
 //     })

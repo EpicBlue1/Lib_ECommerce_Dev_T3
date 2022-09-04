@@ -13,7 +13,6 @@ const ProductCard = (props) => {
     }
 
     let URL = 'http://localhost:2000/images/' + props.img;
-    console.log(props.img)
 
     return (
         <div className="product-card">

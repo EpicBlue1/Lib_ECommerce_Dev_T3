@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const routes = require('./routes');
+const userRoutes = require('./userRoutes');
 //dotenv allows to use .env file.
 require('dotenv/config')
 
@@ -14,6 +15,7 @@ app.use(cors({origin: "http://localhost:3000"}))
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(routes);
+app.use(userRoutes)
 app.use('/images', express.static('images'));
 
 //connect to database

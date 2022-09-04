@@ -41,7 +41,6 @@ const Landing = (props) => {
 
         axios.get('http://localhost:2000/api/allproducts')
         .then((res) => {
-            console.log(res.data)
             let data = res.data;
             data = data.filter(Lens => Lens.ProductProperties[0].discount > 0);
 
@@ -65,7 +64,6 @@ const Landing = (props) => {
 
     useEffect(()=>{
         const interval = setInterval(()=>{
-            console.log(slideIndex)
             Next();        
         }, 3000);
         return () => clearInterval(interval);
