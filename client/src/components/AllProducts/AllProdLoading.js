@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import ProductCard from '../subcomponents/ProductCard';
-import Lenses from '../Mock/Lenses.json';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
 

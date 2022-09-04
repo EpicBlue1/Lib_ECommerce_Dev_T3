@@ -5,7 +5,6 @@ import ButtSlider from '../subcomponents/BtnSlider';
 import Onsale from './OnSale';
 import NewProds from './NewProds';
 import Brands from './Brands';
-import Lenses from '../Mock/Lenses.json';
 import axios from 'axios';
 
 const Landing = (props) => {
@@ -49,7 +48,7 @@ const Landing = (props) => {
             setproductImages(data.map((obj, i) => {
                 return (
                     <div key={obj.id} className={slideIndex === i + 1 ? 'slide active-anim' : 'slide'}>
-                        <div className="SliderImage txtGrayDark" style={{ backgroundImage: `url(${obj.images[0]})`}}><b>{obj.name}</b></div>
+                        <div className="SliderImage txtGrayDark" style={{ backgroundImage: `url(${obj.images})`}}><b>{obj.name}</b></div>
                     </div>
                 )
             }))

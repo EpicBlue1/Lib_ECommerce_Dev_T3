@@ -6,7 +6,6 @@ import AllProdLoading from './AllProdLoading';
 const AllProducts = (props) => { 
     
     const [data, setData] = useState(props.AllProductData.sort((a, b) => a.name.localeCompare(b.name))),
-    untouchedData = props.AllProductData.sort((a, b) => a.name.localeCompare(b.name)),
     [filterYes, setFilterYes] = useState(true),
     [filterBy, setFilterBy] = useState(),
     [card, setCard] = useState(data.map(Lens =>(<ProductCard key={Lens._id} img = {Lens.image} name = {Lens.name} price = {Lens.ProductProperties[0].price} discount={Lens.ProductProperties[0].discount} id={Lens._id}/>))),

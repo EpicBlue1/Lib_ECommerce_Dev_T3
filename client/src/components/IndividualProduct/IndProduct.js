@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
-import Lenses from '../Mock/Lenses.json';
 import {useLocation} from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
@@ -9,7 +8,6 @@ const IndProduct = (props) => {
 
     const Navigate = useNavigate();
 
-    const data = Lenses;
     const location = useLocation();
     
     const [slideIndex, setSlideIndex] = useState(1);

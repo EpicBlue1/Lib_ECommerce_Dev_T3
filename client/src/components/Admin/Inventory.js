@@ -36,7 +36,7 @@ const Inventory = (props) => {
         </Col>
 
         <Col className="Products" md={{span: 9}}>
-            {data.map(item => (<InventoryItem setUpdateRender={setUpdateRender} updateRender={updateRender} key={item._id} id={item._id} brand={item.brand} img={item.image} name={item.name} ProductProperty={item.ProductProperties[0].ProductProperty} ProductProperties={item.ProductProperties} stock={item.ProductProperties[0].totalAvail} price={item.ProductProperties[0].price} discount = {item.ProductProperties[0].discount} description={item.description}/>))}
+            {data.map(item => (<InventoryItem setUpdateRender={setUpdateRender} productCode={item.ProductProperties[0].productCode} updateRender={updateRender} key={item._id} id={item._id} category={item.category} brand={item.brand} img={item.image} name={item.name} ProductProperty={item.ProductProperties[0].ProductProperty} ProductProperties={item.ProductProperties} stock={item.ProductProperties[0].totalAvail} price={item.ProductProperties[0].price} discount = {item.ProductProperties[0].discount} description={item.description}/>))}
         </Col>
     </Row>
 </>

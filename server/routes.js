@@ -68,7 +68,6 @@ router.post('/api/addorder', (req, res) => {
             qty: req.body.products.qty
         }
     );
-
     newOrder.save()
     .then(item => {
         res.json(item);
@@ -118,9 +117,7 @@ router.get('/api/allproducts', async (req, res) => {
     res.json(findProducts);
 });
 
-//edit User
 router.patch('/api/updateProduct/:id', async (req, res) => {
-
     const upProduct = await productSchema.updateOne(
         {_id: req.params.id},
         {$set: {
@@ -128,21 +125,23 @@ router.patch('/api/updateProduct/:id', async (req, res) => {
             brand: req.body.brand,
             category: req.body.category,
             ProductProperties: {
-                ProductProperties: req.body.ProductProperties,
                 ProductProperty: req.body.ProductProperty,
                 totalAvail: req.body.totalAvail,
                 price: req.body.price,
-                discount: req.body.discount
+                discount: req.body.discount,
+                productCode: req.body.productCode
             },
             description: req.body.description,
-            images:[
-                req.body.images
-            ]
+            image: req.body.image
         }}
     );
-
     res.json(upProduct);
+})
 
+router.delete('/api/deleteProduct/:id', async (req, res) => {
+    console.log(req.params.id)
+    const deleteProduct = await productSchema.deleteOne({_id:req.params.id});
+    res.json(deleteProduct);
 })
 
 module.exports = router;

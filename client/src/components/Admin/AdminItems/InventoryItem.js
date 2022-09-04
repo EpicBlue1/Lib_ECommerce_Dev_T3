@@ -32,7 +32,7 @@ const InventoryItem = (props) => {
 
     return (
         <div key={props.id} className='Product'>
-            <EditProduct setUpdateRender={props.setUpdateRender} updateRender={props.updateRender} id={props.id} img={props.img} name={props.name} stock={props.stock} price={props.price} discount = {props.discount} description={props.description} ProductProperty={props.ProductProperty} ProductProperties={props.ProductProperties} brand={props.brand} show={showEd} setShow={setshowEdit}/>
+            <EditProduct setUpdateRender={props.setUpdateRender} updateRender={props.updateRender} id={props.id} img={props.img} name={props.name} stock={props.stock} price={props.price} discount = {props.discount} description={props.description} ProductProperty={props.ProductProperty} ProductProperties={props.ProductProperties} category={props.category} brand={props.brand} productCode={props.productCode} show={showEd} setShow={setshowEdit}/>
             <div className='inv-img' style={{ backgroundImage: `url(${props.img})`}}></div>
             <div className='inv-proName'>{props.name}</div>
             <div className='inv-icon'></div>

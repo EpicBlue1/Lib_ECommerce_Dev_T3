@@ -9,13 +9,16 @@ const ProductCard = (props) => {
 
 
     const indProduct = () => {
-        ProductNavigate('/IndProduct', {state:{id:props.id, name:props.name, img:props.img}});
+        ProductNavigate('/IndProduct', {state:{id:props.id, name:props.name, img:'http://localhost:2000/images/' + props.img}});
     }
+
+    let URL = 'http://localhost:2000/images/' + props.img;
+    console.log(props.img)
 
     return (
         <div className="product-card">
             <Row>
-                <div className="product-image" style={{ backgroundImage: `url(${props.img})`}}>
+                <div className="product-image" style={{ backgroundImage: `url(${URL})`}}>
                     <div className='hoverProduct'>
                         <div className="hoverButt">Add to Cart</div>  
                         <div onClick={indProduct} className="hoverButt">View</div>  
