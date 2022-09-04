@@ -1,8 +1,26 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import CartProduct from '../subcomponents/CartPageProduct';
 
 const Cart = (props) => {
+
+    const [CartPreview, setCartPreview] = useState("Add Some Products !")
+    let cart = JSON.parse(sessionStorage.getItem('cart'));
+
+    useEffect(() => {
+
+    if(cart === undefined || cart === null){
+
+    } else {
+    console.log(cart.length)
+
+        let temp = cart.map(item =>(<CartProduct setRender={props.setRender} name={item.name} img={item.img} price={item.price} id={item.id} qta={item.qta} orderDone={item.orderDone} user={item.user}/>));
+
+        setCartPreview(temp);
+    }
+
+    }, [props.Rerender]);
+
     return (
         <>
         {props.MainNavBar}
@@ -17,10 +35,7 @@ const Cart = (props) => {
                     <Row>
                         <Col md={8}>
                             <div className="CartProducts">
-                                <CartProduct/>
-                                <CartProduct/>
-                                <CartProduct/>
-                                <CartProduct/>
+                            {CartPreview}
                             </div>
                             <div className="CartInfo">
                                 <div className="ContShopping">

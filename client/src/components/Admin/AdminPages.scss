@@ -46,8 +46,7 @@
 .inv-icon{
     width: 50px;
     height: 50px;
-    background-color: black;
-    margin-left: 5%;
+    // background-color: black;
 }
 
 .inv-stock{
@@ -87,7 +86,7 @@
 .inv-edit{
     width: 50px;
     height: 50px;
-    margin-left: 8%;
+    margin-left: 13%;
     background-image: url('../../img/edit_icon.svg');
     background-size: 45%;
     background-position: center;
@@ -95,14 +94,7 @@
 }
 
 .inv-edit:hover{
-    width: 50px;
-    height: 50px;
-    margin-left: 8%;
     border-radius: 10px;
-    background-image: url('../../img/edit_icon.svg');
     background-color: $secondary_vanilla;
-    background-size: 45%;
-    background-position: center;
-    background-repeat: no-repeat;
     cursor: pointer;
 }

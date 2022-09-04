@@ -18,6 +18,7 @@ const NavigationBar = (props) => {
     Navigate = useNavigate()
 
     let cart = JSON.parse(sessionStorage.getItem('cart'));
+    let user = sessionStorage.getItem('user')
 
     useEffect(()=> {
 
@@ -26,11 +27,24 @@ const NavigationBar = (props) => {
         } else {
         console.log(cart.length)
             for (let i = 0; i < cart.length; i++) {
-                setCount(i + 1)
+                setCount(i + 1);
             }
         }
 
     }, [props.Render]);
+
+    // useEffect(()=>{
+
+    //     if(user === '' || cart === null || cart === undefined){
+
+    //     } else {
+    //     console.log(cart.length)
+    //         for (let i = 0; i < cart.length; i++) {
+    //             setCount(i + 1);
+    //         }
+    //     }
+
+    // }, [])
 
     const hidePop = () => {
         setLogPop(!logPop);
@@ -108,7 +122,7 @@ const NavigationBar = (props) => {
                 className='NavObject' md={{span:1, offset:1}}>
                 <div className={Show ? 'cartIcon cartHover' : 'cartIcon'}></div>
                 <div className='cartNum'>{count}</div>
-                <CartModal Rerender={props.Render} Show={Show} setShow={setShow}/>
+                <CartModal setRender={props.setRender} Rerender={props.Render} Show={Show} setShow={setShow}/>
             </Col>
         </Row>
     );

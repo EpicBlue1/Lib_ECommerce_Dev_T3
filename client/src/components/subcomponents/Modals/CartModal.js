@@ -16,7 +16,7 @@ const CartModal = (props) => {
     } else {
     console.log(cart.length)
 
-        let temp = cart.map(item =>(<CartProduct name={item.name} img={item.img} price={item.price} id={item.id} qta={item.qta} orderDone={item.orderDone} user={item.user}/>));
+        let temp = cart.map(item =>(<CartProduct setRender={props.setRender} name={item.name} img={item.img} price={item.price} id={item.id} qta={item.qta} orderDone={item.orderDone} user={item.user}/>));
 
         setCartPreview(temp);
     }

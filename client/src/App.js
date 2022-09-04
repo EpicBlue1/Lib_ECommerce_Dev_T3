@@ -46,10 +46,10 @@ function App() {
   return (
     <Container fluid>
         <Routes>
-          <Route path="/" element={<Landing setRender={setRender} AllProductData={AllProductData} MainNavBar={<NavBar Render={rendered} />}/>} />
-          <Route path="/AllProducts" element={<AllProducts AllProductData={AllProductData} MainNavBar={<NavBar />}/>} />
-          <Route path="/Cart" element={<Cart MainNavBar={<NavBar />}/>} />
-          <Route path="/IndProduct" element={<IndProduct MainNavBar={<NavBar />}/>} />
+          <Route path="/" element={<Landing setRender={setRender} AllProductData={AllProductData} MainNavBar={<NavBar setRender={setRender} Render={rendered} />}/>} />
+          <Route path="/AllProducts" element={<AllProducts AllProductData={AllProductData} MainNavBar={<NavBar  setRender={setRender} Render={rendered}/>}/>} />
+          <Route path="/Cart" element={<Cart Render={rendered} setRender={setRender} MainNavBar={<NavBar setRender={setRender} Render={rendered} />}/>} />
+          <Route path="/IndProduct" element={<IndProduct MainNavBar={<NavBar  setRender={setRender} Render={rendered}/>}/>} />
           <Route path="/Inventory" element={<Inventory AllProductData={AllProductData} AdminNav={<AdminNavBar/>}/>} />
           <Route path="/PendingOrders" element={<PendingOrders AdminNav={<AdminNavBar/>}/>} />
         </Routes>
