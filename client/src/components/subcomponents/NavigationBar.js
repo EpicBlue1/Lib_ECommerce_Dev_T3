@@ -11,7 +11,7 @@ const NavigationBar = (props) => {
     email = useRef(),
     password = useRef(),
     form = useRef(),
-    [logedIn, setLogedIn] = useState('Log In'),
+    [logedIn, setLogedIn] = useState(),
     [Log, setLog] = useState(false),
     [count, setCount] = useState(0),
     [validatePass, setValidatePass] = useState(false),
@@ -33,18 +33,19 @@ const NavigationBar = (props) => {
 
     }, [props.Render]);
 
-    // useEffect(()=>{
+    useEffect(()=>{
 
-    //     if(user === '' || cart === null || cart === undefined){
+        if(user === '' || user === null || user === undefined){
+            setLogedIn('Log In')
+            setLog(false)
+        } else {
+            for (let i = 0; i < user.length; i++) {
+                setLogedIn('Log Out')
+                setLog(true)
+            }
+        }
 
-    //     } else {
-    //     console.log(cart.length)
-    //         for (let i = 0; i < cart.length; i++) {
-    //             setCount(i + 1);
-    //         }
-    //     }
-
-    // }, [])
+    }, [])
 
     const hidePop = () => {
         setLogPop(!logPop);
@@ -114,7 +115,7 @@ const NavigationBar = (props) => {
             <Col className='NavObject Logo' md={{span:2, offset: 1}}>LIB</Col>
             <Col className='NavObject Item' md={{span:1}}><Link to="/">Home</Link></Col>
             <Col className='NavObject Item' md={{span:1}}><Link to="/AllProducts">Products</Link></Col>
-            <Col className='NavObject Item' md={{span:1}}>About</Col>
+            <Col className='NavObject Item' md={{span:1}}></Col>
             <Col onClick={hidePop} className='NavObject Item Log-In' md={{span:1, offset:2}}>{logedIn}</Col>
             <Col className='NavObject Item pfp' md={{span:1}}></Col>
             <Col onMouseEnter={() => setShow(true)}

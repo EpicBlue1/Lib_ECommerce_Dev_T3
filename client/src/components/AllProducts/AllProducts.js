@@ -8,7 +8,7 @@ const AllProducts = (props) => {
     const [data, setData] = useState(props.AllProductData.sort((a, b) => a.name.localeCompare(b.name))),
     [filterYes, setFilterYes] = useState(true),
     [filterBy, setFilterBy] = useState(),
-    [card, setCard] = useState(data.map(Lens =>(<ProductCard key={Lens._id} img = {Lens.image} name = {Lens.name} price = {Lens.ProductProperties[0].price} discount={Lens.ProductProperties[0].discount} id={Lens._id}/>))),
+    [card, setCard] = useState(data.map(Lens =>(<ProductCard brand={Lens.brand} description={Lens.description} key={Lens._id} img = {Lens.image} name = {Lens.name} price = {Lens.ProductProperties[0].price} discount={Lens.ProductProperties[0].discount} id={Lens._id}/>))),
     [dropDownMode, setDropDownMode] = useState("No Sort"),
     dropDown = useRef()
         
@@ -65,7 +65,7 @@ const AllProducts = (props) => {
             prod = filter.sort((a, b) => b.ProductProperties[0].price - a.ProductProperties[0].price);
         }
 
-        setCard(prod.map(Lens =>(<ProductCard key={Lens._id} img = {Lens.image} name = {Lens.name} price = {Lens.ProductProperties[0].price} discount={Lens.ProductProperties[0].discount} id={Lens._id}/>)));
+        setCard(prod.map(Lens =>(<ProductCard setRender={props.setRender} description={Lens.description} key={Lens._id} img = {Lens.image} name = {Lens.name} price = {Lens.ProductProperties[0].price} discount={Lens.ProductProperties[0].discount} brand={Lens.brand} id={Lens._id}/>)));
 
         console.log(data);
 
@@ -83,7 +83,7 @@ const AllProducts = (props) => {
             dropdown[i].selectedIndex = 0;
         }
         setData(props.AllProductData.sort((a, b) => a.name.localeCompare(b.name)))
-        setCard(props.AllProductData.filter(Product => Product.brand === Product.brand).map(Lens =>(<ProductCard key={Lens._id} img = {Lens.images[0]} name = {Lens.name} price = {Lens.ProductProperties[0].price} discount={Lens.ProductProperties[0].discount} id={Lens._id}/>)))
+        setCard(props.AllProductData.filter(Product => Product.brand === Product.brand).map(Lens =>(<ProductCard setRender={props.setRender} description={Lens.description} key={Lens._id} img = {Lens.images[0]} name = {Lens.name} price = {Lens.ProductProperties[0].price} discount={Lens.ProductProperties[0].discount} brand={Lens.brand} id={Lens._id}/>)))
 
         setFilterYes(true);
     }
@@ -100,7 +100,7 @@ const AllProducts = (props) => {
             <Col className="AllProductSubSec" md={{span: 12}}>
                 <h1 className="txtGrayDark"><b>Camera Lenses & Accessories</b></h1>
                 <br></br>
-                <p className="txtGrayDark">Lorem ipsum dolor sit amet. Ea maxime recusandae in voluptatem quia et voluptatibus consequatur qui galisum impedit vel magni illum qui numquam tenetur est ipsam veniam. Vel repellendus molestiae est ipsam consectetur id autem enim ut consequatur fugit est voluptatem impedit.</p>
+                <p className="txtGrayDark">Browse our vast assortment of camera lenses, or indulge yourself and make your picture game easier with our exclusive range of accessories.</p>
             </Col>
 
             <Col className="FilterSec" md={{span: 3}}>

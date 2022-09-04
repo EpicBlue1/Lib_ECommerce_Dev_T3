@@ -69,7 +69,7 @@ const Landing = (props) => {
             <Col className="SliderSubSec" md={{span: 6, offset: 1}}>
                 <h1 className="txtGrayDark"><b>Welcome to Life Is Beautiful</b></h1>
                 <br></br>
-                <p className="SliderSubSecPar txtGrayDark">Lorem ipsum dolor sit amet. Ea maxime recusandae in voluptatem quia et voluptatibus consequatur qui galisum impedit vel magni illum qui numquam tenetur est ipsam veniam. Vel repellendus molestiae est ipsam consectetur id autem enim ut consequatur fugit est voluptatem impedit.</p>
+                <p className="SliderSubSecPar txtGrayDark">The best website for all of your photography requirements! Explore a wide range of camera lenses from our partners Nikon, Canon, and Sony. Treat yourself, and make your photo game easier with a variety of accessories available only from us.</p>
             </Col>
 
             <Col className="SliderSubSecRight Slider" md={{span: 5}}>
@@ -85,7 +85,7 @@ const Landing = (props) => {
             </Col>
         </Row>
         <Onsale setRender={props.setRender} AllProductData={props.AllProductData}/>
-        <NewProds/>
+        <NewProds AllProductData={props.AllProductData}/>
         <Brands/>
     </>
     );

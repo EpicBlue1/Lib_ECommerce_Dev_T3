@@ -7,11 +7,13 @@ const ProductCard = (props) => {
 
     const ProductNavigate = useNavigate();
 
+    console.log(props.brand)
+
     const indProduct = () => {
-        ProductNavigate('/IndProduct', {state:{id:props.id, name:props.name, img:'http://localhost:2000/images/' + props.img}});
+        ProductNavigate('/IndProduct', {state:{id:props.id, name:props.name, img:'http://localhost:2000/images/' + props.img, desc: props.description, brand:props.brand, price:props.price - props.discount}});
     }
 
-    console.log(props.id)
+    console.log(props.description)
 
     const addToCart = () => {
         let user = sessionStorage.getItem('user');

@@ -27,30 +27,29 @@ const IndProduct = (props) => {
                         <Col className="Product-Visual-Side" md={7}>
                             <div onClick={()=>Navigate(-1)} className="BackIcon"></div>
                             <div className='Product_Name'><h1>{location.state.name}</h1></div>
+                            <br></br>
+                            <br></br>
+                            <br></br>
                             <div className="IndProductImage" style={{ backgroundImage: `url(${location.state.img})`}}>
                             </div>
-                            <br></br>
-                            <h2 className='txtGrayDark'><b>More Zoom Lenses</b></h2>
+                            <h2 className='txtGrayDark'></h2>
                             <div className="MoreSimilar">
-                                <div className='SimilarImg'></div>
-                                <div className='SimilarImg'></div>
-                                <div className='SimilarImg'></div>
-                                <div className='SimilarImg'></div>
+
                             </div>
                         </Col>
 
                         <Col className="ProductDetail" md={5}>
                             <h1>Details</h1>
-                            <div className="ProductDescript"><p>orem ipsum dolor sit rem ipsum dolor sit rem ipsum dolor sit amet. Ea maxime recusandae in voluptatem quia et voluptatibus consequatur qui galisum impedit vel magni illum qui numquam tenetur est ipsam veniam. Vel repellendus mol</p></div>
+                            <div className="ProductDescript"><p>{location.state.desc}</p></div>
                             <div className="ProductInfo">
                                 {/* add if only 3 are left */}
                                 <div className="inStock">In Stock</div>
-                                <div className="brand">Brand: Canon</div>
+                                <div className="brand">Brand: {location.state.brand}</div>
                             </div>
 
                         {/* add hide and show if more than one image is available */}
                             <h1 className="Left">Colors</h1>
-                            <h1 className="PriceText">R3499</h1>
+                            <h1 className="PriceText">R{location.state.price}</h1>
                             <div className='ColorBlocks'>
                                 <div className='Block_One'></div>
                                 <div className='Block_One'></div>

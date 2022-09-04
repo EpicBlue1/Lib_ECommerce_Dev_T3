@@ -110,7 +110,9 @@ input{
 }
 
 .ProductDescript{
-    height: 16vh;
+    overflow-y: auto;
+    height: 14vh;
+    margin-bottom: 4vh;
     width: 100%;
 }
 
@@ -150,7 +152,7 @@ input{
 }
 
 .PriceText{
-    margin-left: 80%;
+    margin-left: 70%;
     font-weight: bold;
     font-style: italic;
 }
