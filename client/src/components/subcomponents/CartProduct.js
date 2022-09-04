@@ -4,12 +4,6 @@ const CartProduct = (props) => {
 
     let cart = JSON.parse(sessionStorage.getItem('cart'));
 
-    // useEffect(()=> {
-
-
-
-    // }, [props.Render]);
-
     const removeProd = (e) => {
 
         if(cart === undefined || cart === null){

@@ -5,7 +5,8 @@ import {Link} from 'react-router-dom';
 const CartModal = (props) => {
 
     const [checkoutHover, setcheckoutHover] = useState(true);
-    const [CartPreview, setCartPreview] = useState("Add Some Products !")
+    const [CartPreview, setCartPreview] = useState("Add Some Products !");
+    const [subTotal, setSubTotal] = useState()
 
     let cart = JSON.parse(sessionStorage.getItem('cart'));
 
@@ -18,6 +19,11 @@ const CartModal = (props) => {
 
         let temp = cart.map(item =>(<CartProduct setRender={props.setRender} name={item.name} img={item.img} price={item.price} id={item.id} qta={item.qta} orderDone={item.orderDone} user={item.user}/>));
 
+        let subTotal = cart.reduce((n, {price}) => n + price, 0)
+        console.log(subTotal);
+
+        setSubTotal(subTotal)
+
         setCartPreview(temp);
     }
 
@@ -29,7 +35,7 @@ const CartModal = (props) => {
                 {CartPreview}
             </div>
             <div className='Subtotal'>
-                <b>Subtotal: R7,998</b>
+                <b>Subtotal: R{subTotal}</b>
             </div>
             <Link className='CheckoutButt' to="/Cart"><div className='CheckoutButton'> 
                 <b>Proceed to Check Out</b>

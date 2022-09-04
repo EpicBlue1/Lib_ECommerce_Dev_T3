@@ -4,9 +4,10 @@ import ProductCard from '../subcomponents/ProductCard';
 import AllProdLoading from './AllProdLoading';
 
 const AllProducts = (props) => { 
+
+    const [data, setData] = useState(props.AllProductData.sort((a, b) => a.name.localeCompare(b.name)))
     
-    const [data, setData] = useState(props.AllProductData.sort((a, b) => a.name.localeCompare(b.name))),
-    [filterYes, setFilterYes] = useState(true),
+    const [filterYes, setFilterYes] = useState(true),
     [filterBy, setFilterBy] = useState(),
     [card, setCard] = useState(data.map(Lens =>(<ProductCard brand={Lens.brand} prodCode={Lens.ProductProperties[0].productCode} description={Lens.description} key={Lens._id} img = {Lens.image} name = {Lens.name} price = {Lens.ProductProperties[0].price} discount={Lens.ProductProperties[0].discount} id={Lens._id}/>))),
     [dropDownMode, setDropDownMode] = useState("No Sort"),
@@ -87,11 +88,6 @@ const AllProducts = (props) => {
 
         setFilterYes(true);
     }
-
-    //data checker
-    if(data === undefined || data === ''){
-        return(<AllProdLoading MainNavBar={props.MainNavBar}/>)
-    } 
 
     return (
 <>
