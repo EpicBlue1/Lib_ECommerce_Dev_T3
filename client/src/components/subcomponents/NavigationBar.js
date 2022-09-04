@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import CartModal from './Modals/CartModal';
 import axios from 'axios';
 
@@ -9,13 +9,19 @@ const NavigationBar = () => {
     const [Show, setShow] = useState(false),
     [logPop, setLogPop] = useState(false), 
     email = useRef(),
-    password = useRef()
+    password = useRef(),
+    form = useRef(),
+    [logedIn, setLogedIn] = useState('Log In'),
+    [Log, setLog] = useState(false),
+    [validatePass, setValidatePass] = useState(false),
+    Navigate = useNavigate()
 
     const hidePop = () => {
         setLogPop(!logPop);
     }
 
-    const logIn = () => {
+    const logIn = (e) => {
+        e.preventDefault()
 
         let credentials = {
             email: email.current.value,
@@ -26,42 +32,60 @@ const NavigationBar = () => {
 
         axios.post('http://localhost:2000/api/login', credentials)
         .then((res)=>{
-          if(!res.data){
-            alert('Bad Request')
-          } else {
-            if(res.data.user){
-              alert('welcome user')
-              sessionStorage.setItem('user', res.data.userName);
-            //   navigate('/admin')
-            } else {
-                alert('Go away user');
-            }
-
-          }
           console.log(res.data);
+          sessionStorage.setItem('user', res.data.email);
+          sessionStorage.setItem('admin', res.data.admin);
+
+          if(res.data.user){
+            if(res.data.admin){
+                Navigate('/Inventory');
+                setLogPop(!logPop);
+                // setValidatePass(false);
+                form.current.reset();
+            } else {
+                setLogPop(!logPop);
+                setValidatePass(false);
+                setLogedIn('Log out');
+                setLog(true);
+                form.current.reset();
+            }
+          } else {
+            console.log(res.data);
+            setValidatePass(true);
+            sessionStorage.clear();
+          }
         })
         .catch((err)=>{
           console.log(err);
         })
-
     }
-
 
     return (
         <Row className='Navigation'>
             <div className={logPop? 'log_pop_con': 'hide'}>
-                <div className='log_pop'>
+                <div className={Log? 'hide' : 'log_pop'}>
                     <h1>Welcome</h1>
-                    <input ref={email} className='login-Input' placeholder="email"/>
-                    <input ref={password} className='login-Input' placeholder="password"/>
-                    <div onClick={logIn} className='login-btn'>Log In</div>
+                    <form ref={form} onSubmit={logIn}>
+                        <input required ref={email} className='login-Input' placeholder="email"/>
+                        <input required ref={password} className='login-Input' placeholder="password"/>
+                        <div className={validatePass? 'Incorrect-Log' : 'hide'}>Email or Password Incorrect</div>
+                        <button type='submit' className='login-btn'>Log In</button>
+                        <div onClick={()=> (setLogPop(!logPop), setValidatePass(false))} className='login-btn'>Cancel</div>
+                    </form>
+                </div>
+                <div className={Log? 'log_pop_out' : 'hide'}>
+                    <h1>Log Out?</h1>
+                    <form onSubmit={logIn}>
+                        <div onClick={()=> (setLogPop(!logPop), setLogedIn('Log In'), sessionStorage.clear(), setLog(false))} className='login-btn'>Confirm</div>
+                        <div onClick={()=> setLogPop(!logPop)} className='login-btn'>Cancel</div>
+                    </form>
                 </div>
             </div>
             <Col className='NavObject Logo' md={{span:2, offset: 1}}>LIB</Col>
             <Col className='NavObject Item' md={{span:1}}><Link to="/">Home</Link></Col>
             <Col className='NavObject Item' md={{span:1}}><Link to="/AllProducts">Products</Link></Col>
             <Col className='NavObject Item' md={{span:1}}>About</Col>
-            <Col onClick={hidePop} className='NavObject Item Log-In' md={{span:1, offset:2}}>Log In</Col>
+            <Col onClick={hidePop} className='NavObject Item Log-In' md={{span:1, offset:2}}>{logedIn}</Col>
             <Col className='NavObject Item pfp' md={{span:1}}></Col>
             <Col onMouseEnter={() => setShow(true)}
                 onMouseLeave={() => setShow(false)} 

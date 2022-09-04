@@ -4,7 +4,7 @@ const ordersSchema = require('./models/orders');
 const usersSchema = require('./models/users');
 const multer = require('multer');
 const path = require('path');
-const bcrypt = require('bcrypt');
+const { find } = require('./models/orders');
 
 //add user
 router.post('/api/adduser', (req, res) => {
@@ -44,13 +44,14 @@ router.post('/api/login', async (req,res) => {
 
     //check if passwords match
     if(findUser){
-        if(await bcrypt.compare(req.body.password, findUser.userPassword)){
-            res.json({user: true});
+        if(req.body.password == findUser.userPassword){
+            res.json({user: true, admin: findUser.admin, email: findUser.userEmail});
         }else{
-            res.json({user: false});
+            res.json({user: false, password: findUser.userPassword})
         }
     } else {
-        res.json({msg: "User not found"})
+        res.json({user: false});
+        console.log("this one")
     }
 
     // res.json(findUser);

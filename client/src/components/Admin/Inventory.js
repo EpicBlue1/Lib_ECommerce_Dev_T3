@@ -3,19 +3,29 @@ import { Container, Row, Col } from 'react-bootstrap';
 import AddProduct from '../subcomponents/Modals/addProduct';
 import InventoryItem from './AdminItems/InventoryItem';
 import { RenderContext } from '../Contexts/RenderContext';
+import { useNavigate } from 'react-router-dom';
 
 const Inventory = (props) => {
     
     const data = props.AllProductData;
 
     const [show, setshow] = useState(false);
-    const [updateRender, setUpdateRender] = useState(false)
+    const [updateRender, setUpdateRender] = useState(false);
+
+    const Navigate = useNavigate();
     
     const showModal = () => {
         setshow(true);
     }
 
-    const {rendered, setRender} = useContext(RenderContext)
+    const {rendered, setRender} = useContext(RenderContext);
+
+    useEffect(() => {
+        let admin = sessionStorage.getItem('admin')
+        if(!admin){
+          Navigate('/');
+        }
+      }, [])
 
     //data checker
     if(data === undefined || data === ''){

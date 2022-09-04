@@ -47,7 +47,7 @@ const Landing = (props) => {
             setproductImages(data.map((obj, i) => {
                 return (
                     <div key={obj.id} className={slideIndex === i + 1 ? 'slide active-anim' : 'slide'}>
-                        <div className="SliderImage txtGrayDark" style={{ backgroundImage: `url(${obj.images})`}}><b>{obj.name}</b></div>
+                        <div className="SliderImage txtGrayDark" style={{ backgroundImage: `url(${obj.image})`}}><b>{obj.name}</b></div>
                     </div>
                 )
             }))

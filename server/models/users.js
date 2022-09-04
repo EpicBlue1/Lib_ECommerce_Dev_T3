@@ -50,4 +50,4 @@ const userSchema = mongoose.Schema(
 });
 
 //different collection example, users, products, orders
-module.exports = mongoose.model('users', userSchema);
+module.exports = mongoose.model('users', userSchema)

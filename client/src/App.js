@@ -5,7 +5,7 @@ import AdminNavBar from './components/Admin/AdminNav';
 import Landing from './components/Landing/Landing';
 import { Container, Row, Col } from 'react-bootstrap';
 import Footer from './components/subcomponents/Footer';
-import {Route, Routes} from 'react-router-dom';
+import {Route, Routes, useNavigate} from 'react-router-dom';
 import AllProducts from './components/AllProducts/AllProducts';
 import Cart from './components/Cart/Cart';
 import IndProduct from './components/IndividualProduct/IndProduct';
@@ -19,6 +19,8 @@ function App() {
 
   const {rendered, setRender} = useContext(RenderContext)
 
+  const Navigate = useNavigate();
+
   useEffect(() =>{
 
     axios.get('http://localhost:2000/api/allproducts')
@@ -30,6 +32,13 @@ function App() {
     })
 
   }, [rendered]);
+
+  useEffect(() => {
+    let admin = sessionStorage.getItem('admin')
+    if(admin){
+      Navigate('/Inventory');
+    }
+  }, [])
 
   return (
     <Container fluid>
