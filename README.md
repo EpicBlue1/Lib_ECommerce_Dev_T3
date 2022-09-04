@@ -25,6 +25,8 @@ Utilising the MERN stack's other technologies, including Node.js, Express.js, an
     * [Ideation](#Ideation)
     * [Wireframes](#Wireframes)
     * [Challenges](#Challenges)
+    * [Challenges](#Above-And-Beyond)
+    * [Challenges](#Future-Implementation)
 * [Final-Outcome](#Final-Outcome)
     * [Mockups](#Mockups)
     * [Video-Demonstration](#Video-Demonstration)
@@ -83,12 +85,12 @@ Run the following in the command-line to install all the required dependencies i
 
 Initial wireframes:
 <p align="center">
-    <img src="assets/Initial_Wireframes.png" align="center" height="350" >
+    <img src="assets/Initial_Wireframes.png" align="center" height="450" >
 </p>
 
 Final wireframes:
 <p align="center">
-    <img src="assets/Final_Wireframes.png" align="center" height="350" >
+    <img src="assets/Final_Wireframs.png" align="center" height="450" >
 </p>
 
 ## Challenges
@@ -96,6 +98,19 @@ Final wireframes:
 * Not focussing on the core functionality first.
 * Server crashes (the result of a spelling mistake, the way I pass my data to the backend, and so on.)
 * Keeping track of props ( I utilized a lot of props I kept losing track, a better alternative would be sessionstorage.)
+
+## Above And Beyond
+
+* Filter and sort on all product page
+* UseReduser used to update and rerender components
+
+## Future Implementation
+
+* Complete individual page: add variations, make add to cart and quantity work.
+* Complete checkout and its backend functionality
+* Orders Page
+* Search
+* Add product qts together if same product
 
 ## Final Outcome
 
