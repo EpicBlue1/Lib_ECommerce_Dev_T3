@@ -12,7 +12,13 @@ const NewProds = (props) => {
     const last5 = data.slice(-5);
 
     setProductCards(
-      last5.map((Lens) => <ProductCard key={Lens._id} AllProductData={Lens} />)
+      last5.map((Lens) => (
+        <ProductCard
+          key={Lens._id}
+          AllData={AllProductData}
+          AllProductData={Lens}
+        />
+      ))
     );
   }, [AllProductData]);
 

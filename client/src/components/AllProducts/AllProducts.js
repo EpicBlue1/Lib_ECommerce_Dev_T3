@@ -107,6 +107,7 @@ const AllProducts = (props) => {
         (Product) => Product.brand === Product.brand
       ).map((Lens) => (
         <ProductCard
+          otherProducts={data}
           setRender={props.setRender}
           description={Lens.description}
           key={Lens._id}

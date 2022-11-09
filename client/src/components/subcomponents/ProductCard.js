@@ -5,6 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 const ProductCard = (props) => {
   console.log(props.AllProductData.image);
 
+  console.log(props.AllData);
+
   const ProductNavigate = useNavigate();
 
   const indProduct = () => {
@@ -22,6 +24,7 @@ const ProductCard = (props) => {
         discount: props.AllProductData.ProductProperties[0].discount,
         productCode: props.AllProductData.productCode,
         AllProductData: props.AllProductData,
+        AllData: props.AllData,
       },
     });
   };

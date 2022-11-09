@@ -12,7 +12,13 @@ const OnSale = (props) => {
     data = data.filter((Lens) => Lens.ProductProperties[0].discount > 0);
 
     setProductCards(
-      data.map((Lens) => <ProductCard key={Lens._id} AllProductData={Lens} />)
+      data.map((Lens) => (
+        <ProductCard
+          key={Lens._id}
+          AllData={AllProductData}
+          AllProductData={Lens}
+        />
+      ))
     );
   }, [AllProductData]);
 
