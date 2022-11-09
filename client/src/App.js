@@ -57,7 +57,7 @@ function App() {
           element={
             <AllProducts
               setRender={setRender}
-              AllProductData={AllProductData}
+              AllData={AllProductData}
               MainNavBar={<NavBar setRender={setRender} Render={rendered} />}
             />
           }
@@ -76,6 +76,7 @@ function App() {
           path="/IndProduct"
           element={
             <IndProduct
+              AllProductData={AllProductData}
               MainNavBar={<NavBar setRender={setRender} Render={rendered} />}
             />
           }

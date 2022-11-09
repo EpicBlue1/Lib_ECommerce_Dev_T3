@@ -1,182 +1,208 @@
-.SliderSecInd{
-    background-color: $primary_dark;
-    // background-color: white;
-    // background-image: linear-gradient(to left, #ffffff 80%, $primary_dark 80%);
+.SliderSecInd {
+  background-color: $primary_dark;
+  // background-color: white;
+  // background-image: linear-gradient(to left, #ffffff 80%, $primary_dark 80%);
+}
+
+.ProductDetails {
+  width: 100%;
+  height: 90vh;
+  background-color: $primary_dark;
+}
+
+.Product-Visual-Side {
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  float: left;
+  padding-top: 30px;
+  padding-left: 45px;
+  height: 90vh;
+  background-color: white;
+}
+
+.ProductDetail {
+  padding-top: 75px;
+  padding-left: 35px;
+  padding-right: 55px;
+  color: black;
+}
+
+.ProductInfo {
+  height: 5vh;
+  margin-bottom: 10vh;
+  display: flex;
+}
+
+.inStock {
+  width: 180px;
+  height: 30px;
+  background-color: $green;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  padding-top: 4px;
+}
+
+.brand {
+  margin-left: 50%;
+  padding-top: 4px;
+  font-weight: bold;
+}
+
+.Qta {
+  margin-top: 16%;
+}
+
+input {
+  height: 50px !important;
+  width: 250px;
+  border: none !important;
+}
+
+.Checkout {
+  height: 180px !important;
+  display: flex;
+  border: none;
+}
+
+.AddCart {
+  height: 50px !important;
+  margin-left: 22%;
+  width: 250px !important;
+  border: none;
+  background-color: $green;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  color: white;
+}
+
+.ProductDetail h1 {
+  color: black;
+}
+
+.ProductDetail p {
+  color: black;
+}
+
+.IndProductImage {
+  width: 100%;
+  height: 55vh;
+  background-image: url("../../img/Canon\ EF\ 200mm\ f2\ L\ IS\ USM\ Lens.png");
+  background-position: center;
+  background-size: 40%;
+  margin-top: 5%;
+  background-repeat: no-repeat;
+}
+
+.MoreSimilar {
+  width: 100%;
+  padding: 20px;
+  height: 17vh;
+  display: flex;
+}
+
+.SimilarImg {
+  width: 110px;
+  height: 110px;
+  margin-right: 20px;
+  background-color: gray;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ProductDescript {
+  overflow-y: auto;
+  height: 14vh;
+  margin-bottom: 4vh;
+  width: 100%;
+}
+
+.BackIcon {
+  margin-top: 2px;
+  margin-right: 20px;
+  width: 20px;
+  height: 20px;
+  background-image: url("../../img/BackArrow.png");
+  color: white !important;
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+  background-repeat: no-repeat;
+}
+
+.Product_Name h1 {
+  float: left;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+  color: black;
+}
+
+.ColorBlocks {
+  width: 350px;
+  height: 65px;
+  display: flex;
+}
+
+.Block_One {
+  text-align: center;
+  background-color: white;
+  cursor: pointer;
+  width: 80px;
+  height: 80px;
+  margin-right: 25px;
+  border-radius: 5px;
+  float: left;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 80%;
+}
+
+.VarientTitle {
+  position: relative;
+  top: 85px;
+  font-weight: 800;
+}
+
+.Block_One_Con {
+  width: 450px;
+  height: 75px;
+  margin-right: 25px;
+  border-radius: 5px;
+}
+
+.PriceText {
+  margin-left: 70%;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.Quantity {
+  text-align: center;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+@media (max-height: 850px) {
+  .IndProductImage {
+    width: 100%;
+    height: 40vh;
+    background-image: url("../../img/Canon\ EF\ 200mm\ f2\ L\ IS\ USM\ Lens.png");
+    background-position: center;
+    background-size: 34%;
+    margin-top: 13%;
+    background-repeat: no-repeat;
   }
 
-.ProductDetails{
-    width: 100%;
-    height: 90vh;
-    background-color: $primary_dark;
-    
-}
-
-.Product-Visual-Side{
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.10);
-    float: left;
-    padding-top: 30px;
-    padding-left: 45px;
-    height: 90vh;
-    background-color: white;
-}
-
-.ProductDetail{
-    padding-top: 75px;
-    padding-left: 35px;
-    padding-right: 55px;
-    color: black;
-}
-
-.ProductInfo{
-    height: 5vh;
-    margin-bottom: 10vh;
-    display: flex;
-}
-
-.inStock{
-    width: 180px;
-    height: 30px;
-    background-color: $green;
-    text-align: center;
-    border-radius: 5px;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.10);
-    font-weight: bold;
-    padding-top: 4px;
-}
-
-.brand{
-    margin-left: 50%;
-    padding-top: 4px;
-    font-weight: bold;
-}
-
-.Qta{
-    margin-top: 16%;
-}
-
-input{
-    height: 50px !important;
-    width: 250px;
-    border: none !important;
-}
-
-.Checkout{
-    height: 180px !important;
-    display: flex;
-    border: none;
-}
-
-.AddCart{
-    height: 50px !important;
-    margin-left: 22%;
-    width: 250px !important;
-    border: none;
-    background-color: $green;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.10);
-    color: white;
-}
-
-.ProductDetail h1{
-    color: black;
-}
-
-.ProductDetail p{
-    color: black;
-}
-
-.IndProductImage{
-    width: 100%;
-    height: 55vh;
-    background-image: url('../../img/Canon\ EF\ 200mm\ f2\ L\ IS\ USM\ Lens.png');
-    background-position: center;
-    background-size: 40%;
-    margin-top: 5%;
-    background-repeat: no-repeat;
-}
-
-.MoreSimilar{
-    width: 100%;
-    padding: 20px;
-    height: 17vh;
-    display: flex;
-}
-
-.SimilarImg{
-    width: 110px;
-    height: 110px;
+  .SimilarImg {
+    width: 90px;
+    height: 90px;
     margin-right: 20px;
     background-color: gray;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.10);
-}
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  }
 
-.ProductDescript{
-    overflow-y: auto;
-    height: 14vh;
-    margin-bottom: 4vh;
-    width: 100%;
-}
-
-.BackIcon{
-    margin-top: 2px;
-    margin-right: 20px;
-    width: 20px;
-    height: 20px;
-    background-image: url('../../img/BackArrow.png');
-    color: white !important;
-    background-position: center;
-    background-size: cover;
-    cursor: pointer;
-    background-repeat: no-repeat;
-}
-
-.Product_Name h1{
-    float: left;
-    width: 100%;
-    padding: 20px;
-    text-align: center;
-    font-weight: bold;
-    color: black;
-}
-
-.ColorBlocks{
-    width: 350px;
-    height: 65px;
-    display: flex;
-}
-
-.Block_One{
-    background-color: white;
-    width: 50px;
-    height: 50px;
-    margin-right: 25px;
-}
-
-.PriceText{
-    margin-left: 70%;
-    font-weight: bold;
-    font-style: italic;
-}
-
-@media (max-height: 850px){
-    .IndProductImage{
-        width: 100%;
-        height: 40vh;
-        background-image: url('../../img/Canon\ EF\ 200mm\ f2\ L\ IS\ USM\ Lens.png');
-        background-position: center;
-        background-size: 34%;
-        margin-top: 13%;
-        background-repeat: no-repeat;
-    }
-
-    .SimilarImg{
-        width: 90px;
-        height: 90px;
-        margin-right: 20px;
-        background-color: gray;
-        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.10);
-    }
-
-    .Qta{
-        margin-top: 9%;
-    }
+  .Qta {
+    margin-top: 9%;
+  }
 }

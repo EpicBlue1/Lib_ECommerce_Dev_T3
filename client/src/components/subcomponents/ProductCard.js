@@ -8,6 +8,7 @@ const ProductCard = (props) => {
   const ProductNavigate = useNavigate();
 
   const indProduct = () => {
+    console.log(props.AllProductData);
     ProductNavigate("/IndProduct", {
       state: {
         id: props.AllProductData._id,
@@ -18,6 +19,7 @@ const ProductCard = (props) => {
         price:
           props.AllProductData.ProductProperties[0].price -
           props.AllProductData.ProductProperties[0].discount,
+        discount: props.AllProductData.ProductProperties[0].discount,
         productCode: props.AllProductData.productCode,
         AllProductData: props.AllProductData,
       },

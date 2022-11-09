@@ -4,8 +4,9 @@ import ProductCard from "../subcomponents/ProductCard";
 import AllProdLoading from "./AllProdLoading";
 
 const AllProducts = (props) => {
+  console.log(props.AllData);
   const [data, setData] = useState(
-    props.AllProductData.sort((a, b) => a.name.localeCompare(b.name))
+    props.AllData.sort((a, b) => a.name.localeCompare(b.name))
   );
 
   const [filterYes, setFilterYes] = useState(true),
@@ -73,7 +74,13 @@ const AllProducts = (props) => {
       }
 
       setCard(
-        prod.map((Lens) => <ProductCard AllProductData={Lens} key={Lens._id} />)
+        prod.map((Lens) => (
+          <ProductCard
+            AllData={props.AllData}
+            AllProductData={Lens}
+            key={Lens._id}
+          />
+        ))
       );
 
       console.log(data);
