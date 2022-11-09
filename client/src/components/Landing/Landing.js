@@ -39,7 +39,7 @@ const Landing = (props) => {
   useEffect(() => {
     axios.get("http://localhost:2000/api/allproducts").then((res) => {
       let data = res.data;
-      data = data.filter((Lens) => Lens.ProductProperties[0].discount > 1);
+      // data = data.filter((Lens) => Lens.ProductProperties[0].discount < 1);
 
       setproductImages(
         data.map((obj, i) => {
