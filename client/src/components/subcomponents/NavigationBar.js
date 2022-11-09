@@ -28,10 +28,10 @@ const NavigationBar = (props) => {
       console.log(cart.length);
       for (let i = 0; i < cart.length; i++) {
         setCount(i + 1);
-        setUpdate(!update);
       }
+      setUpdate(!update);
     }
-  }, [cart, props.Render, update]);
+  }, [props.Render]);
 
   useEffect(() => {
     if (user === "" || user === null || user === undefined) {
@@ -66,6 +66,8 @@ const NavigationBar = (props) => {
         sessionStorage.setItem("user", res.data.email);
         sessionStorage.setItem("admin", res.data.admin);
         sessionStorage.setItem("username", res.data.userName);
+        sessionStorage.setItem("details", JSON.stringify(res.data.details));
+        sessionStorage.setItem("id", res.data.id);
 
         if (res.data.user) {
           if (res.data.admin) {
@@ -132,7 +134,11 @@ const NavigationBar = (props) => {
                 setLogPop(!logPop),
                 setLogedIn("Log In"),
                 setUsername(""),
-                sessionStorage.clear(),
+                sessionStorage.removeItem("user"),
+                sessionStorage.removeItem("admin"),
+                sessionStorage.removeItem("username"),
+                sessionStorage.removeItem("details"),
+                sessionStorage.removeItem("id"),
                 setLog(false)
               )}
               className="login-btn"

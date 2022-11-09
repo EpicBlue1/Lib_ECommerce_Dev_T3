@@ -50,6 +50,8 @@ router.post("/api/login", async (req, res) => {
         admin: findUser.admin,
         email: findUser.userEmail,
         userName: findUser.userName,
+        id: findUser._id,
+        details: findUser.ShippingAddress,
       });
     } else {
       res.json({ user: false });

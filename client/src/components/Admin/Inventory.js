@@ -10,6 +10,7 @@ const Inventory = (props) => {
 
   const [show, setshow] = useState(false);
   const [updateRender, setUpdateRender] = useState(false);
+  const [mapped, setMapped] = useState();
 
   const Navigate = useNavigate();
 
@@ -19,15 +20,43 @@ const Inventory = (props) => {
 
   const { rendered, setRender } = useContext(RenderContext);
 
-  // useEffect(() => {
-  //     const admin = sessionStorage.getItem('admin')
-  //     console.log(admin)
-  //     if(!admin){
-  //         Navigate('/');
-  //     } else if(admin === '' || admin === null || admin === undefined|| admin === false){
-  //         Navigate('/');
-  //     }
-  //   }, [])
+  useEffect(() => {
+    const admin = sessionStorage.getItem("admin");
+    console.log(admin);
+    if (!admin) {
+      Navigate("/");
+    } else if (
+      admin === "" ||
+      admin === null ||
+      admin === undefined ||
+      admin === false
+    ) {
+      Navigate("/");
+    }
+  }, []);
+
+  useEffect(() => {
+    let mapped = data.map((item) => (
+      <InventoryItem
+        setUpdateRender={setUpdateRender}
+        productCode={item.ProductProperties[0].productCode}
+        updateRender={updateRender}
+        key={item._id}
+        id={item._id}
+        category={item.category}
+        brand={item.brand}
+        img={item.image}
+        name={item.name}
+        ProductProperty={item.ProductProperties[0].ProductProperty}
+        ProductProperties={item.ProductProperties}
+        stock={item.ProductProperties[0].totalAvail}
+        price={item.ProductProperties[0].price}
+        discount={item.ProductProperties[0].discount}
+        description={item.description}
+      />
+    ));
+    setMapped(mapped);
+  }, [data, updateRender]);
 
   //data checker
   if (data === undefined || data === "") {
@@ -52,25 +81,7 @@ const Inventory = (props) => {
         </Col>
 
         <Col className="Products" md={{ span: 9 }}>
-          {data.map((item) => (
-            <InventoryItem
-              setUpdateRender={setUpdateRender}
-              productCode={item.ProductProperties[0].productCode}
-              updateRender={updateRender}
-              key={item._id}
-              id={item._id}
-              category={item.category}
-              brand={item.brand}
-              img={item.image}
-              name={item.name}
-              ProductProperty={item.ProductProperties[0].ProductProperty}
-              ProductProperties={item.ProductProperties}
-              stock={item.ProductProperties[0].totalAvail}
-              price={item.ProductProperties[0].price}
-              discount={item.ProductProperties[0].discount}
-              description={item.description}
-            />
-          ))}
+          {mapped}
         </Col>
       </Row>
     </>

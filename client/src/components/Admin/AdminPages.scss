@@ -1,100 +1,147 @@
-.AddProduct{
-    margin-left: 10%;
-    margin-top: 40px;
-    width: 90%;
-    height: 130px;
-    text-align: center;
-    padding-top: 45px;
-    font-style: italic;
-    background-color: $primary_dark;
-    color: white;
-    cursor: pointer;
-    border-radius: 10px;
+.AddProduct {
+  margin-left: 10%;
+  margin-top: 40px;
+  width: 90%;
+  height: 130px;
+  text-align: center;
+  padding-top: 45px;
+  font-style: italic;
+  background-color: $primary_dark;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
 }
 
-.Product{
-    width: 99%;
-    margin: 0 auto;
-    height: 60px;
-    background-color: white;
-    margin-top: 10px;
-    display: flex;
-    padding: 5px;
+.Product {
+  width: 99%;
+  margin: 0 auto;
+  height: 60px;
+  background-color: white;
+  margin-top: 10px;
+  display: flex;
+  padding: 5px;
 }
 
-.inv-img{
-    margin-left: 1%;
-    width: 50px;
-    height: 50px;
-    // background-color: black;
-    background-size: 60%;
-    background-repeat: no-repeat;
-    background-position: center;
+.ProductPen {
+  width: 99%;
+  margin: 0 auto;
+  height: 60px;
+  background-color: white;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-content: stretch;
+  align-items: center;
 }
 
-.inv-proName{
-    width: 20%;
-    height: 50px;
-    // background-color: black;
-    margin-left: 5%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding-top: 1%;
+.pad-proName {
+  width: 20%;
+  height: 50px;
+  // background-color: black;
+  margin-left: 5%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-top: 0.7%;
 }
 
-.inv-icon{
-    width: 50px;
-    height: 50px;
-    // background-color: black;
+.inv-img {
+  margin-left: 1%;
+  width: 50px;
+  height: 50px;
+  // background-color: black;
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.inv-stock{
-    width: 10%;
-    height: 50px;
-    // background-color: black;
-    margin-left: 5%;
-    text-align: center;
-    padding-top: 1%;
+.inv-proName {
+  width: 20%;
+  height: 50px;
+  // background-color: black;
+  margin-left: 5%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-top: 1%;
 }
 
-.inv-stock-red{
-    width: 10%;
-    height: 25px;
-    margin-top: 1%;
-    text-align: center;
-    border-radius: 5px;
-    background-color: $red;
-    margin-left: 5%;
-    // padding-top: 1%;
+.inv-icon {
+  width: 50px;
+  height: 50px;
+  // background-color: black;
 }
 
-.inv-price{
-    width: 10%;
-    height: 50px;
-    // background-color: black;
-    margin-left: 4%;
-    padding-top: 1%;
+.inv-stock {
+  width: 10%;
+  height: 50px;
+  // background-color: black;
+  margin-left: 5%;
+  text-align: center;
+  padding-top: 1%;
 }
 
-.discoount_yes{
-    background-color: $green;
-    text-align: center;
-    border-radius: 5px;
+.inv-stock-red {
+  width: 10%;
+  height: 25px;
+  margin-top: 1%;
+  text-align: center;
+  border-radius: 5px;
+  background-color: $red;
+  margin-left: 5%;
+  // padding-top: 1%;
 }
 
-.inv-edit{
-    width: 50px;
-    height: 50px;
-    margin-left: 13%;
-    background-image: url('../../img/edit_icon.svg');
-    background-size: 45%;
-    background-position: center;
-    background-repeat: no-repeat;
+.inv-price {
+  width: 10%;
+  height: 50px;
+  // background-color: black;
+  margin-left: 4%;
+  padding-top: 1%;
 }
 
-.inv-edit:hover{
-    border-radius: 10px;
-    background-color: $secondary_vanilla;
-    cursor: pointer;
+.pad-price {
+  width: 10%;
+  height: 50px;
+  // background-color: black;
+  margin-left: 4%;
+  padding-top: 0.7%;
+}
+
+.discoount_yes {
+  background-color: $green;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.inv-edit {
+  width: 50px;
+  height: 50px;
+  margin-left: 13%;
+  background-image: url("../../img/edit_icon.svg");
+  background-size: 45%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.pen-edit {
+  width: 100px;
+  height: 50px;
+  padding-top: 0.7%;
+  margin-left: 13%;
+  text-align: center;
+}
+
+.pen-edit:hover {
+  border-radius: 10px;
+  background-color: $secondary_vanilla;
+  cursor: pointer;
+}
+
+.inv-edit:hover {
+  border-radius: 10px;
+  background-color: $secondary_vanilla;
+  cursor: pointer;
 }

@@ -3,11 +3,16 @@ import { Col, Container, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 
 const ProductCard = (props) => {
-  console.log(props.AllProductData.image);
+  console.log(props.AllProductData);
 
   console.log(props);
 
   const ProductNavigate = useNavigate();
+
+  let cart = sessionStorage.getItem("cart");
+  let cartData = JSON.parse(cart);
+  console.log(cartData);
+  let emptyArray = [];
 
   const indProduct = () => {
     console.log(props.AllProductData);
@@ -18,6 +23,7 @@ const ProductCard = (props) => {
         img: "http://localhost:2000/images/" + props.AllProductData.image,
         desc: props.AllProductData.description,
         brand: props.AllProductData.brand,
+        avail: props.AllProductData.ProductProperties[0].totalAvail,
         price:
           props.AllProductData.ProductProperties[0].price -
           props.AllProductData.ProductProperties[0].discount,
@@ -36,12 +42,7 @@ const ProductCard = (props) => {
       if (window.confirm("Dear Customer, you need to log in first ") === true) {
       }
     } else {
-      let cart = sessionStorage.getItem("cart");
-      let cartData = JSON.parse(cart);
-      let emptyArray = [];
-      console.log(cartData.length);
-
-      if (cart === "" || cart === null || cartData.length === 0) {
+      if (cart === "" || cart === null) {
         console.log("Cart Empty");
         let payload = {
           id: props.AllProductData._id,
@@ -49,6 +50,7 @@ const ProductCard = (props) => {
           img: "http://localhost:2000/images/" + props.AllProductData.image,
           desc: props.AllProductData.description,
           brand: props.AllProductData.brand,
+          avail: props.AllProductData.ProductProperties[0].totalAvail,
           price:
             props.AllProductData.ProductProperties[0].price -
             props.AllProductData.ProductProperties[0].discount,
@@ -57,8 +59,8 @@ const ProductCard = (props) => {
           qty: 1,
         };
 
-        cartData.push(payload);
-        sessionStorage.setItem("cart", JSON.stringify(cartData));
+        emptyArray.push(payload);
+        sessionStorage.setItem("cart", JSON.stringify(emptyArray));
       } else {
         let payload = {
           id: props.AllProductData._id,
@@ -66,6 +68,7 @@ const ProductCard = (props) => {
           img: "http://localhost:2000/images/" + props.AllProductData.image,
           desc: props.AllProductData.description,
           brand: props.AllProductData.brand,
+          avail: props.AllProductData.ProductProperties[0].totalAvail,
           price:
             props.AllProductData.ProductProperties[0].price -
             props.AllProductData.ProductProperties[0].discount,
@@ -75,10 +78,8 @@ const ProductCard = (props) => {
         };
 
         cartData.push(payload);
-        sessionStorage.setItem("cart", JSON.stringify(cartData));
+        sessionStorage.setItem("cart", JSON.stringify(emptyArray));
       }
-
-      console.log(cartData);
     }
   };
 

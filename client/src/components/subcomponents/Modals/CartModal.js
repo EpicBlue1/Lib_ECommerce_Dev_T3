@@ -36,6 +36,25 @@ const CartModal = (props) => {
     }
   }, [props.Rerender, props.setRender, props.update]);
 
+  const removeProd = (e) => {
+    if (cart === undefined || cart === null) {
+    } else {
+      console.log(cart.length);
+
+      for (let i = 0; i < cart.length; i++) {
+        if (props.name === cart[i].name) {
+          console.log(props.name + " " + cart[i].name);
+
+          cart.splice(i, 1);
+
+          sessionStorage.setItem("cart", JSON.stringify(cart));
+
+          props.setRender((prev) => !prev);
+        }
+      }
+    }
+  };
+
   return (
     <div
       onMouseEnter={() => props.setShow(true)}
