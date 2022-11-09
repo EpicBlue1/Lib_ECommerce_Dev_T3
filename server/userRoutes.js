@@ -49,6 +49,7 @@ router.post("/api/login", async (req, res) => {
         user: true,
         admin: findUser.admin,
         email: findUser.userEmail,
+        userName: findUser.userName,
       });
     } else {
       res.json({ user: false });

@@ -11,6 +11,7 @@ const NavigationBar = (props) => {
     password = useRef(),
     form = useRef(),
     [logedIn, setLogedIn] = useState(),
+    [Username, setUsername] = useState(""),
     [Log, setLog] = useState(false),
     [count, setCount] = useState(0),
     [validatePass, setValidatePass] = useState(false),
@@ -62,22 +63,22 @@ const NavigationBar = (props) => {
         console.log(res.data);
         sessionStorage.setItem("user", res.data.email);
         sessionStorage.setItem("admin", res.data.admin);
+        sessionStorage.setItem("username", res.data.userName);
 
         if (res.data.user) {
           if (res.data.admin) {
             Navigate("/Inventory");
             setLogPop(!logPop);
-            // setValidatePass(false);
             form.current.reset();
           } else {
             setLogPop(!logPop);
             setValidatePass(false);
+            setUsername(res.data.userName);
             setLogedIn("Log out");
             setLog(true);
             form.current.reset();
           }
         } else {
-          console.log(res.data);
           setValidatePass(true);
           sessionStorage.clear();
         }
@@ -98,12 +99,14 @@ const NavigationBar = (props) => {
               ref={email}
               className="login-Input"
               placeholder="email"
+              type="email"
             />
             <input
               required
               ref={password}
               className="login-Input"
               placeholder="password"
+              type={password}
             />
             <div className={validatePass ? "Incorrect-Log" : "hide"}>
               Email or Password Incorrect
@@ -126,6 +129,7 @@ const NavigationBar = (props) => {
               onClick={() => (
                 setLogPop(!logPop),
                 setLogedIn("Log In"),
+                setUsername(""),
                 sessionStorage.clear(),
                 setLog(false)
               )}
@@ -156,7 +160,9 @@ const NavigationBar = (props) => {
       >
         {logedIn}
       </Col>
-      <Col className="NavObject Item pfp" md={{ span: 1 }}></Col>
+      <Col className="NavObject Item" md={{ span: 1 }}>
+        {Username}
+      </Col>
       <Col
         onMouseEnter={() => setShow(true)}
         onMouseLeave={() => setShow(false)}
