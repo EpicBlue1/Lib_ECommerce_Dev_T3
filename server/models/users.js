@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 
 const userSchema = mongoose.Schema({
   userName: {
@@ -27,13 +28,9 @@ const userSchema = mongoose.Schema({
       required: true,
     },
   },
-  //user Id's orders
-  //order object ids with the users id
-  prevOrders: [
-    {
-      type: String,
-    },
-  ],
+  prevOrders: {
+    type: Array,
+  },
   userPassword: {
     type: String,
     required: true,
