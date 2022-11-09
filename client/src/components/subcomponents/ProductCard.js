@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 const ProductCard = (props) => {
   console.log(props.AllProductData.image);
 
-  console.log(props.AllData);
+  console.log(props);
 
   const ProductNavigate = useNavigate();
 
@@ -37,57 +37,48 @@ const ProductCard = (props) => {
       }
     } else {
       let cart = sessionStorage.getItem("cart");
+      let cartData = JSON.parse(cart);
       let emptyArray = [];
-      console.log(cart);
+      console.log(cartData.length);
 
-      if (cart === "" || cart === null) {
-        console.log("this one");
-
-        let addCard = {
+      if (cart === "" || cart === null || cartData.length === 0) {
+        console.log("Cart Empty");
+        let payload = {
+          id: props.AllProductData._id,
           name: props.AllProductData.name,
           img: "http://localhost:2000/images/" + props.AllProductData.image,
+          desc: props.AllProductData.description,
+          brand: props.AllProductData.brand,
           price:
             props.AllProductData.ProductProperties[0].price -
             props.AllProductData.ProductProperties[0].discount,
-          id: props.AllProductData._id,
-          qta: 1,
-          orderDone: false,
-          user: user,
+          discount: props.AllProductData.ProductProperties[0].discount,
+          productCode: props.AllProductData.productCode,
+          qty: 1,
         };
 
-        emptyArray.push(addCard);
-
-        console.log(emptyArray);
-
-        sessionStorage.setItem("cart", JSON.stringify(emptyArray));
-
-        props.setRender((prev) => !prev);
+        cartData.push(payload);
+        sessionStorage.setItem("cart", JSON.stringify(cartData));
       } else {
-        console.log("no this one");
-        let cart = JSON.parse(sessionStorage.getItem("cart"));
-
-        let addCard = {
+        let payload = {
+          id: props.AllProductData._id,
           name: props.AllProductData.name,
           img: "http://localhost:2000/images/" + props.AllProductData.image,
+          desc: props.AllProductData.description,
+          brand: props.AllProductData.brand,
           price:
-            props.AllProductData[0].price - props.AllProductData[0].discount,
-          id: props.AllProductData._id,
-          qta: 1,
-          orderDone: false,
-          user: user,
+            props.AllProductData.ProductProperties[0].price -
+            props.AllProductData.ProductProperties[0].discount,
+          discount: props.AllProductData.ProductProperties[0].discount,
+          productCode: props.AllProductData.productCode,
+          qty: 1,
         };
 
-        console.log(cart);
-
-        cart.push(addCard);
-
-        console.log(cart);
-
-        sessionStorage.setItem("cart", JSON.stringify(cart));
-
-        props.setRender((prev) => !prev);
+        cartData.push(payload);
+        sessionStorage.setItem("cart", JSON.stringify(cartData));
       }
-      console.log("All good");
+
+      console.log(cartData);
     }
   };
 

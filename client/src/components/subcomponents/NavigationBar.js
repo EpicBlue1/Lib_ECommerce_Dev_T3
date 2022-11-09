@@ -14,6 +14,7 @@ const NavigationBar = (props) => {
     [Username, setUsername] = useState(""),
     [Log, setLog] = useState(false),
     [count, setCount] = useState(0),
+    [update, setUpdate] = useState(true),
     [validatePass, setValidatePass] = useState(false),
     Navigate = useNavigate();
 
@@ -27,9 +28,10 @@ const NavigationBar = (props) => {
       console.log(cart.length);
       for (let i = 0; i < cart.length; i++) {
         setCount(i + 1);
+        setUpdate(!update);
       }
     }
-  }, [props.Render]);
+  }, [cart, props.Render, update]);
 
   useEffect(() => {
     if (user === "" || user === null || user === undefined) {
@@ -41,7 +43,7 @@ const NavigationBar = (props) => {
         setLog(true);
       }
     }
-  }, []);
+  }, [user, logedIn]);
 
   const hidePop = () => {
     setLogPop(!logPop);
@@ -175,6 +177,7 @@ const NavigationBar = (props) => {
           setRender={props.setRender}
           Rerender={props.Render}
           Show={Show}
+          update={update}
           setShow={setShow}
         />
       </Col>

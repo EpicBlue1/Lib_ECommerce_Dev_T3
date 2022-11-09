@@ -29,15 +29,21 @@ function App() {
     });
   }, [rendered]);
 
-  // useEffect(() => {
-  //   const admin = sessionStorage.getItem('admin')
-  //   console.log(admin)
-  //   if(admin){
-  //     Navigate('/Inventory');
-  //   } else if(admin === '' || admin === null || admin === undefined|| admin === false){
-  //     Navigate('/');
-  //   }
-  // }, [])
+  useEffect(() => {
+    const admin = sessionStorage.getItem("admin");
+    console.log(admin);
+    console.log(false);
+    if (admin === "true") {
+      Navigate("/Inventory");
+    } else if (
+      admin === "" ||
+      admin === null ||
+      admin === undefined ||
+      admin === "false"
+    ) {
+      Navigate("/");
+    }
+  }, []);
 
   return (
     <Container fluid>
